@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Filter, ArrowRight, ExternalLink, Grid, BarChart } from 'lucide-react';
+import { Filter, ExternalLink, Grid } from 'lucide-react';
 import { projects } from '../data/projects';
 import ProjectCard from './ProjectCard';
 import { Project } from '../types';
@@ -38,7 +38,7 @@ const Projects: React.FC = () => {
 
   return (
     <div id="projects" className="min-h-screen py-32 bg-gray-900 relative">
-      {/* Explore More Indicator */}
+      {/* Explore More Indicator - Top Right Only */}
       <div className="absolute top-8 right-8 z-10">
         <button
           onClick={() => navigate('/projects')}
@@ -53,16 +53,7 @@ const Projects: React.FC = () => {
       </div>
 
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-center mb-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-white text-center">Projects</h2>
-          <button
-            onClick={() => navigate('/projects')}
-            className="ml-4 group text-purple-400 hover:text-purple-300 transition-colors"
-            title="View all projects with advanced filtering"
-          >
-            <ArrowRight size={24} className="group-hover:translate-x-1 transition-transform duration-300" />
-          </button>
-        </div>
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 text-center">Projects</h2>
 
         {/* Quick Stats */}
         <div className="flex justify-center mb-8">
@@ -85,7 +76,7 @@ const Projects: React.FC = () => {
         </div>
         
         <div className="flex justify-center mb-10">
-          <div className="bg-gray-800 p-1 rounded-lg inline-flex relative">
+          <div className="bg-gray-800 p-1 rounded-lg inline-flex">
             <button
               onClick={() => setFilter('all')}
               className={`px-4 py-2 rounded-md text-sm font-medium transition-all ${
@@ -127,20 +118,11 @@ const Projects: React.FC = () => {
             >
               Data Analysis
             </button>
-
-            {/* Advanced filters indicator */}
-            <button
-              onClick={() => navigate('/projects')}
-              className="ml-2 px-3 py-2 bg-gray-700 hover:bg-purple-600 rounded-md transition-colors group"
-              title="Advanced filtering & search"
-            >
-              <Filter size={16} className="text-gray-400 group-hover:text-white" />
-            </button>
           </div>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 relative">
-          {filteredProjects.slice(0, 6).map((project, index) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredProjects.map((project, index) => (
             <div 
               key={project.id}
               className={`transition-all duration-500 transform ${
@@ -153,28 +135,6 @@ const Projects: React.FC = () => {
               <ProjectCard project={project} />
             </div>
           ))}
-
-          {/* Show more indicator if there are more projects */}
-          {projects.length > 6 && (
-            <div className="md:col-span-2 lg:col-span-3 mt-8">
-              <div className="bg-gradient-to-r from-purple-900/20 to-indigo-900/20 rounded-xl p-8 border border-purple-700/30 text-center">
-                <BarChart className="w-12 h-12 text-purple-400 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold text-white mb-2">
-                  {projects.length - 6} More Projects Available
-                </h3>
-                <p className="text-gray-300 mb-6">
-                  Explore the complete portfolio with advanced filtering, search, and detailed project breakdowns
-                </p>
-                <button
-                  onClick={() => navigate('/projects')}
-                  className="group bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg transition-all duration-300 flex items-center mx-auto"
-                >
-                  <span className="mr-2">View All Projects</span>
-                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
-                </button>
-              </div>
-            </div>
-          )}
         </div>
         
         {filteredProjects.length === 0 && (

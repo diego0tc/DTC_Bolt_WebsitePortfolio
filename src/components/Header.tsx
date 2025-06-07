@@ -45,8 +45,11 @@ const Header: React.FC = () => {
       // If we're on home page and clicking a section, scroll to it
       scrollTo(sectionId);
     } else {
-      // Navigate to the dedicated page
+      // Navigate to the dedicated page and scroll to top
       navigate(path);
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 100);
     }
     setIsMenuOpen(false);
   };
@@ -58,7 +61,12 @@ const Header: React.FC = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
           <button 
-            onClick={() => navigate('/')}
+            onClick={() => {
+              navigate('/');
+              setTimeout(() => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }, 100);
+            }}
             className="text-white font-bold text-2xl hover:text-gray-300 transition-colors"
           >
             DataViz Portfolio
@@ -85,7 +93,12 @@ const Header: React.FC = () => {
               Projects
             </button>
             <button 
-              onClick={() => navigate('/resume')} 
+              onClick={() => {
+                navigate('/resume');
+                setTimeout(() => {
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }, 100);
+              }} 
               className="text-white hover:text-gray-300 transition-colors"
             >
               Resume
@@ -127,7 +140,13 @@ const Header: React.FC = () => {
                 Projects
               </button>
               <button 
-                onClick={() => navigate('/resume')} 
+                onClick={() => {
+                  navigate('/resume');
+                  setTimeout(() => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }, 100);
+                  setIsMenuOpen(false);
+                }} 
                 className="text-white hover:text-gray-300 transition-colors text-left"
               >
                 Resume
