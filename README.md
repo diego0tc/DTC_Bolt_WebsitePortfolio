@@ -1,5 +1,6 @@
 # Diego TC Analytics Portfolio
 
+
 Professional portfolio website showcasing data analytics expertise, Tableau dashboards, and economics research.
 
 ## 🎯 Project Overview
