@@ -29,7 +29,7 @@ const About: React.FC = () => {
   ];
 
   return (
-    <div id="about" className="py-20 bg-gray-800 relative">
+    <div id="about" className="min-h-screen py-32 bg-gray-800 relative">
       {/* Explore More Indicator */}
       <div className="absolute top-8 right-8 z-10">
         <button

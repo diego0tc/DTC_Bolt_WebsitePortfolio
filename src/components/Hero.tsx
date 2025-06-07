@@ -54,10 +54,10 @@ const Hero: React.FC = () => {
             </div>
           </div>
           <button 
-            onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
             className="bg-indigo-600 text-white px-6 py-3 rounded-full hover:bg-indigo-700 transition-colors flex items-center mx-auto"
           >
-            View Projects <ArrowDown className="ml-2" size={16} />
+            View About <ArrowDown className="ml-2" size={16} />
           </button>
         </div>
       </div>

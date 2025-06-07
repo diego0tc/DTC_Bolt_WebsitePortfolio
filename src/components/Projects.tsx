@@ -37,7 +37,7 @@ const Projects: React.FC = () => {
   }, [isAnimated]);
 
   return (
-    <div id="projects" className="py-20 bg-gray-900 relative">
+    <div id="projects" className="min-h-screen py-32 bg-gray-900 relative">
       {/* Explore More Indicator */}
       <div className="absolute top-8 right-8 z-10">
         <button
