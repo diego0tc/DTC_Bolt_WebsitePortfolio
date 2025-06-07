@@ -1,7 +1,10 @@
 import React from 'react';
-import { Code, BarChart4, Lightbulb, Database } from 'lucide-react';
+import { Code, BarChart4, Lightbulb, Database, ArrowRight, ExternalLink } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const About: React.FC = () => {
+  const navigate = useNavigate();
+
   const skills = [
     { 
       category: 'Data Analysis',
@@ -26,9 +29,31 @@ const About: React.FC = () => {
   ];
 
   return (
-    <div id="about" className="py-20 bg-gray-800">
+    <div id="about" className="py-20 bg-gray-800 relative">
+      {/* Explore More Indicator */}
+      <div className="absolute top-8 right-8 z-10">
+        <button
+          onClick={() => navigate('/about')}
+          className="group bg-indigo-600/20 hover:bg-indigo-600 border border-indigo-500/50 hover:border-indigo-400 rounded-full px-4 py-2 flex items-center transition-all duration-300 backdrop-blur-sm"
+        >
+          <span className="text-indigo-300 group-hover:text-white text-sm font-medium mr-2">
+            Explore More
+          </span>
+          <ExternalLink size={16} className="text-indigo-300 group-hover:text-white group-hover:translate-x-1 transition-all duration-300" />
+        </button>
+      </div>
+
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center">About Me</h2>
+        <div className="flex items-center justify-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-white text-center">About Me</h2>
+          <button
+            onClick={() => navigate('/about')}
+            className="ml-4 group text-indigo-400 hover:text-indigo-300 transition-colors"
+            title="View detailed about page"
+          >
+            <ArrowRight size={24} className="group-hover:translate-x-1 transition-transform duration-300" />
+          </button>
+        </div>
         
         {/* Profile Section with Photo */}
         <div className="mb-16">
@@ -56,7 +81,16 @@ const About: React.FC = () => {
             
             {/* Content */}
             <div className="flex-1">
-              <div className="bg-gray-700 rounded-xl p-8 h-full">
+              <div className="bg-gray-700 rounded-xl p-8 h-full relative">
+                {/* More Details Indicator */}
+                <button
+                  onClick={() => navigate('/about')}
+                  className="absolute top-4 right-4 group bg-gray-600/50 hover:bg-indigo-600 rounded-full p-2 transition-all duration-300"
+                  title="View full background & achievements"
+                >
+                  <ArrowRight size={16} className="text-gray-400 group-hover:text-white group-hover:translate-x-1 transition-all duration-300" />
+                </button>
+
                 <h3 className="text-3xl font-bold text-white mb-6">Background & Expertise</h3>
                 <p className="text-gray-300 leading-relaxed mb-6 text-lg">
                   With over 8 years of experience in data science and analytics, I specialize in transforming 
@@ -87,6 +121,22 @@ const About: React.FC = () => {
                     <p className="text-gray-300">Commitment to ethical data practices and responsible AI</p>
                   </div>
                 </div>
+
+                {/* Teaser for more content */}
+                <div className="mt-6 p-4 bg-indigo-900/20 rounded-lg border border-indigo-700/30">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-indigo-200 text-sm font-medium">Want to learn more?</p>
+                      <p className="text-indigo-300 text-xs">Professional journey, achievements & philosophy</p>
+                    </div>
+                    <button
+                      onClick={() => navigate('/about')}
+                      className="text-indigo-400 hover:text-indigo-300 transition-colors"
+                    >
+                      <ArrowRight size={20} />
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -94,7 +144,15 @@ const About: React.FC = () => {
 
         {/* Approach Section */}
         <div className="mb-16">
-          <div className="bg-gradient-to-r from-indigo-900/30 to-purple-900/30 rounded-xl p-8 border border-indigo-700/30">
+          <div className="bg-gradient-to-r from-indigo-900/30 to-purple-900/30 rounded-xl p-8 border border-indigo-700/30 relative">
+            <button
+              onClick={() => navigate('/about')}
+              className="absolute top-4 right-4 group bg-indigo-600/20 hover:bg-indigo-600 rounded-full p-2 transition-all duration-300"
+              title="Read more about my philosophy"
+            >
+              <ArrowRight size={16} className="text-indigo-400 group-hover:text-white group-hover:translate-x-1 transition-all duration-300" />
+            </button>
+
             <h3 className="text-2xl font-bold text-white mb-6 text-center">My Approach</h3>
             <p className="text-gray-300 leading-relaxed text-center max-w-4xl mx-auto text-lg">
               I believe in a holistic approach to data projects, emphasizing not just technical excellence but also 
@@ -106,11 +164,21 @@ const About: React.FC = () => {
         </div>
         
         {/* Skills Section */}
-        <div>
-          <h3 className="text-2xl font-bold text-white mb-8 text-center">Skills & Expertise</h3>
+        <div className="relative">
+          <div className="flex items-center justify-center mb-8">
+            <h3 className="text-2xl font-bold text-white text-center">Skills & Expertise</h3>
+            <button
+              onClick={() => navigate('/about')}
+              className="ml-4 group text-indigo-400 hover:text-indigo-300 transition-colors"
+              title="View comprehensive skills breakdown"
+            >
+              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform duration-300" />
+            </button>
+          </div>
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {skills.map((skill, index) => (
-              <div key={index} className="bg-gray-700 rounded-lg p-6 hover:bg-gray-600 transition-colors duration-300">
+              <div key={index} className="bg-gray-700 rounded-lg p-6 hover:bg-gray-600 transition-colors duration-300 relative group">
                 <div className="flex items-center mb-4">
                   {skill.icon}
                   <h4 className="text-xl font-semibold text-white ml-3">{skill.category}</h4>
@@ -123,8 +191,26 @@ const About: React.FC = () => {
                     </li>
                   ))}
                 </ul>
+
+                {/* Hover indicator */}
+                <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="w-2 h-2 bg-indigo-400 rounded-full animate-pulse"></div>
+                </div>
               </div>
             ))}
+          </div>
+
+          {/* Bottom teaser */}
+          <div className="mt-8 text-center">
+            <button
+              onClick={() => navigate('/about')}
+              className="group bg-gray-700/50 hover:bg-indigo-600 border border-gray-600 hover:border-indigo-500 rounded-lg px-6 py-3 transition-all duration-300"
+            >
+              <span className="text-gray-300 group-hover:text-white font-medium mr-2">
+                View Professional Timeline & Achievements
+              </span>
+              <ArrowRight size={16} className="inline text-gray-400 group-hover:text-white group-hover:translate-x-1 transition-all duration-300" />
+            </button>
           </div>
         </div>
       </div>
