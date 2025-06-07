@@ -1,6 +1,5 @@
 # Diego TC Analytics Portfolio
 
-
 Professional portfolio website showcasing data analytics expertise, Tableau dashboards, and economics research.
 
 ## 🎯 Project Overview
@@ -33,16 +32,118 @@ npm run dev
 ### Deployment
 
 #### Option 1: Automatic (Recommended)
-Push to main branch and GitHub Actions will automatically deploy.
-
-#### Option 2: Manual
+Push to main branch:
 ```bash
-# Make sure you're logged into Firebase
-firebase login
+git push origin main
+```
+**Live URL**: https://website-portfolio-dtc.web.app
 
-# Build and deploy
+#### Option 2: Manual Deployment
+```bash
+# Build the project
+npm run build
+
+# Deploy to Firebase
+npm run deploy
+# OR use the deploy script
 ./deploy.sh
 ```
+
+## 🌳 **Professional Branch Strategy**
+
+### **Branch Structure:**
+```
+main                    # 🚀 Production (auto-deploys to live site)
+├── bolt-ui            # 🎨 Bolt AI UI/design changes  
+├── content-updates    # 🔒 Personal content (Backend AI)
+├── development        # 🧪 Integration testing
+└── feature/*          # 📄 Specific features
+```
+
+### **Deployment Environments:**
+- **Production**: https://website-portfolio-dtc.web.app
+- **UI Preview**: https://website-portfolio-dtc--bolt-ui-preview.web.app  
+- **Content Preview**: https://website-portfolio-dtc--content-preview.web.app
+- **Development**: https://website-portfolio-dtc--dev-staging.web.app
+
+## 📊 **Features**
+
+### **Professional Portfolio Components:**
+- ✅ **Hero Section**: Personal branding and professional titles
+- ✅ **About Page**: Professional bio and expertise  
+- ✅ **Projects Showcase**: Tableau dashboards and analytics work
+- ✅ **Resume Section**: Professional experience and skills
+- ✅ **Contact Form**: Professional networking and inquiries
+
+### **Technical Excellence:**
+- ✅ **Modern Stack**: Vite + React + TypeScript + Tailwind CSS
+- ✅ **Responsive Design**: Mobile-first, professional presentation
+- ✅ **Performance Optimized**: Fast loading, smooth animations
+- ✅ **SEO Ready**: Meta tags and social sharing optimization
+- ✅ **Analytics Integration**: Google Analytics tracking
+
+### **Data Analytics Focus:**
+- ✅ **Tableau Integration**: Embedded interactive dashboards
+- ✅ **Project Portfolio**: Economics and data science projects
+- ✅ **Professional Tools**: Showcase of technical expertise
+- ✅ **Contact Integration**: Professional networking channels
+
+## 🔧 **Workflow: Bolt AI + Backend AI**
+
+### **Bolt AI Territory (UI/Design):**
+- 🎨 Design improvements and UI/UX
+- 📱 Responsive design optimization
+- ✨ Animations and visual effects
+- 🧩 New components and layouts
+
+### **Backend AI Territory (Content/Personal):**
+- 📄 Personal information and branding
+- 📊 Tableau dashboard integration
+- 🔗 Social media and contact details
+- 📈 Project content and descriptions
+
+### **Perfect Separation:**
+- **Bolt AI**: Works on `bolt-ui` branch with placeholder data
+- **Backend AI**: Works on `content-updates` branch with real personal information
+- **Production**: Merges the best of both for live deployment
+
+## 📝 **Project Data**
+
+### **Personal Information** 
+Managed in `src/data/personal.ts`:
+- ✅ Contact details and professional info
+- ✅ Social media links (LinkedIn, GitHub, Tableau)
+- ✅ Professional bio and elevator pitch
+- ✅ Skills and specialties
+
+### **Project Portfolio**
+Managed in `src/data/projects.ts`:
+- ✅ Tableau dashboard projects
+- ✅ Economic analysis and research
+- ✅ Data visualization showcases
+- ✅ Philosophy and data science integration
+
+## 🚀 **Deployment Ready**
+
+**✅ Production Environment:**
+- Firebase Hosting with global CDN
+- Automatic HTTPS and caching
+- Custom domain ready
+- Performance monitoring
+
+**✅ Development Environment:**
+- GitHub Actions CI/CD pipeline
+- Preview deployments for each branch
+- Automated testing and building
+- Deployment status tracking
+
+---
+
+**Professional Portfolio Status**: ✅ **LIVE AND READY**
+
+*Turning Questions into Business Living Systems* 📊
+
+**Last Updated**: January 15, 2025 - Trigger preview deployment
 
 ## 📁 Project Structure
 
