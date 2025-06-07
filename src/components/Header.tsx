@@ -69,7 +69,7 @@ const Header: React.FC = () => {
             }}
             className="text-white font-bold text-2xl hover:text-gray-300 transition-colors"
           >
-            DataViz Portfolio
+            Diego TC
           </button>
           
           {/* Desktop Navigation */}
