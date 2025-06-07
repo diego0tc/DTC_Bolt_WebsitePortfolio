@@ -73,15 +73,5 @@ export const socialLinks = [
     name: 'LinkedIn',
     icon: 'linkedin',
     url: 'https://linkedin.com/in/datascientist'
-  },
-  {
-    name: 'Twitter',
-    icon: 'twitter',
-    url: 'https://twitter.com/datascientist'
-  },
-  {
-    name: 'Medium',
-    icon: 'book-open',
-    url: 'https://medium.com/@datascientist'
   }
 ];

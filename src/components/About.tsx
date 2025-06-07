@@ -30,61 +30,102 @@ const About: React.FC = () => {
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center">About Me</h2>
         
-        <div className="md:flex md:space-x-8 mb-16">
-          <div className="md:w-1/3 mb-8 md:mb-0">
-            <div className="bg-gray-700 rounded-lg p-6 h-full">
-              <h3 className="text-2xl font-bold text-white mb-4">Background</h3>
-              <p className="text-gray-300 leading-relaxed">
-                With over 8 years of experience in data science and analytics, I specialize in transforming 
-                complex data into actionable insights. My expertise spans across multiple industries including 
-                healthcare, finance, and retail, where I've delivered impactful solutions that drive business growth.
-              </p>
-              <p className="text-gray-300 leading-relaxed mt-4">
-                I hold a Master's degree in Data Science from MIT and have multiple certifications in 
-                advanced analytics and machine learning techniques.
-              </p>
+        {/* Profile Section with Photo */}
+        <div className="mb-16">
+          <div className="flex flex-col lg:flex-row items-center lg:items-start gap-12">
+            {/* Professional Photo */}
+            <div className="flex-shrink-0">
+              <div className="relative">
+                <div className="w-80 h-80 rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-indigo-500 to-purple-600 p-1">
+                  <div className="w-full h-full rounded-xl bg-gray-700 flex items-center justify-center">
+                    {/* Placeholder for professional photo */}
+                    <div className="text-center text-gray-400">
+                      <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-gray-600 flex items-center justify-center">
+                        <span className="text-3xl font-bold">JD</span>
+                      </div>
+                      <p className="text-sm">Professional Photo</p>
+                      <p className="text-xs mt-1">(LinkedIn Profile Image)</p>
+                    </div>
+                  </div>
+                </div>
+                {/* Decorative elements */}
+                <div className="absolute -top-4 -right-4 w-8 h-8 bg-indigo-500 rounded-full opacity-70"></div>
+                <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-purple-500 rounded-full opacity-70"></div>
+              </div>
             </div>
-          </div>
-          
-          <div className="md:w-2/3">
-            <div className="bg-gray-700 rounded-lg p-6 h-full">
-              <h3 className="text-2xl font-bold text-white mb-4">My Approach</h3>
-              <p className="text-gray-300 leading-relaxed mb-6">
-                I believe in a holistic approach to data projects, emphasizing not just technical excellence but also 
-                business context and stakeholder needs. My methodology combines rigorous analysis with 
-                creative problem-solving to deliver solutions that are both technically sound and 
-                commercially valuable.
-              </p>
-              
-              <h4 className="text-xl font-semibold text-white mb-3">What sets me apart:</h4>
-              <ul className="list-disc pl-5 text-gray-300 space-y-2 mb-6">
-                <li>Strong focus on translating technical findings into business value</li>
-                <li>Ability to communicate complex concepts to non-technical stakeholders</li>
-                <li>Experience leading cross-functional data teams</li>
-                <li>Commitment to ethical data practices and responsible AI</li>
-              </ul>
+            
+            {/* Content */}
+            <div className="flex-1">
+              <div className="bg-gray-700 rounded-xl p-8 h-full">
+                <h3 className="text-3xl font-bold text-white mb-6">Background & Expertise</h3>
+                <p className="text-gray-300 leading-relaxed mb-6 text-lg">
+                  With over 8 years of experience in data science and analytics, I specialize in transforming 
+                  complex data into actionable insights. My expertise spans across multiple industries including 
+                  healthcare, finance, and retail, where I've delivered impactful solutions that drive business growth.
+                </p>
+                <p className="text-gray-300 leading-relaxed mb-8 text-lg">
+                  I hold a Master's degree in Data Science from MIT and have multiple certifications in 
+                  advanced analytics and machine learning techniques.
+                </p>
+                
+                <h4 className="text-xl font-semibold text-white mb-4">What sets me apart:</h4>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="flex items-start">
+                    <div className="w-2 h-2 bg-indigo-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <p className="text-gray-300">Strong focus on translating technical findings into business value</p>
+                  </div>
+                  <div className="flex items-start">
+                    <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <p className="text-gray-300">Ability to communicate complex concepts to non-technical stakeholders</p>
+                  </div>
+                  <div className="flex items-start">
+                    <div className="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <p className="text-gray-300">Experience leading cross-functional data teams</p>
+                  </div>
+                  <div className="flex items-start">
+                    <div className="w-2 h-2 bg-yellow-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <p className="text-gray-300">Commitment to ethical data practices and responsible AI</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+
+        {/* Approach Section */}
+        <div className="mb-16">
+          <div className="bg-gradient-to-r from-indigo-900/30 to-purple-900/30 rounded-xl p-8 border border-indigo-700/30">
+            <h3 className="text-2xl font-bold text-white mb-6 text-center">My Approach</h3>
+            <p className="text-gray-300 leading-relaxed text-center max-w-4xl mx-auto text-lg">
+              I believe in a holistic approach to data projects, emphasizing not just technical excellence but also 
+              business context and stakeholder needs. My methodology combines rigorous analysis with 
+              creative problem-solving to deliver solutions that are both technically sound and 
+              commercially valuable.
+            </p>
+          </div>
+        </div>
         
-        <h3 className="text-2xl font-bold text-white mb-8 text-center">Skills & Expertise</h3>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {skills.map((skill, index) => (
-            <div key={index} className="bg-gray-700 rounded-lg p-6">
-              <div className="flex items-center mb-4">
-                {skill.icon}
-                <h4 className="text-xl font-semibold text-white ml-3">{skill.category}</h4>
+        {/* Skills Section */}
+        <div>
+          <h3 className="text-2xl font-bold text-white mb-8 text-center">Skills & Expertise</h3>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {skills.map((skill, index) => (
+              <div key={index} className="bg-gray-700 rounded-lg p-6 hover:bg-gray-600 transition-colors duration-300">
+                <div className="flex items-center mb-4">
+                  {skill.icon}
+                  <h4 className="text-xl font-semibold text-white ml-3">{skill.category}</h4>
+                </div>
+                <ul className="text-gray-300">
+                  {skill.items.map((item, i) => (
+                    <li key={i} className="mb-2 flex items-center">
+                      <span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <ul className="text-gray-300">
-                {skill.items.map((item, i) => (
-                  <li key={i} className="mb-2 flex items-center">
-                    <span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </div>
