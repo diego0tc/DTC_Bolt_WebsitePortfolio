@@ -1,66 +1,68 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 
 interface TableauEmbedProps {
   url: string;
   height?: number;
+  title?: string;
 }
 
-const TableauEmbed: React.FC<TableauEmbedProps> = ({ url, height = 600 }) => {
-  const vizRef = useRef<HTMLDivElement>(null);
+const TableauEmbed: React.FC<TableauEmbedProps> = ({ 
+  url, 
+  height = 600, 
+  title = "Tableau Dashboard" 
+}) => {
+  // Convert Tableau Public URL to embed format if needed
+  const getEmbedUrl = (originalUrl: string): string => {
+    // If it's already an embed URL, return as is
+    if (originalUrl.includes('/views/') && originalUrl.includes('?:embed=yes')) {
+      return originalUrl;
+    }
+    
+    // Convert regular Tableau Public URL to embed format
+    if (originalUrl.includes('public.tableau.com')) {
+      // Extract the view path and add embed parameters
+      const urlObj = new URL(originalUrl);
+      const embedUrl = `${urlObj.origin}${urlObj.pathname}?:embed=yes&:display_count=yes&:showVizHome=no&:origin=viz_share_link&:tabs=no&:toolbar=no`;
+      return embedUrl;
+    }
+    
+    return originalUrl;
+  };
 
-  useEffect(() => {
-    // This is a placeholder for actual Tableau embedding
-    // In a real implementation, you would use the Tableau JavaScript API
-    
-    // Simulating the Tableau viz loading for demo purposes
-    const loadViz = () => {
-      if (vizRef.current) {
-        const vizPlaceholder = document.createElement('div');
-        vizPlaceholder.innerHTML = `
-          <div class="flex flex-col items-center justify-center h-full">
-            <div class="text-lg font-medium mb-2">Tableau Visualization</div>
-            <div class="text-sm text-gray-400">(Would load from: ${url})</div>
-            <div class="mt-4 w-full bg-gray-700 h-[${height - 100}px] rounded-lg flex items-center justify-center">
-              <div class="text-center p-6">
-                <div class="animate-pulse flex space-x-4">
-                  <div class="flex-1 space-y-6 py-1">
-                    <div class="h-2 bg-gray-600 rounded"></div>
-                    <div class="space-y-3">
-                      <div class="grid grid-cols-3 gap-4">
-                        <div class="h-2 bg-gray-600 rounded col-span-2"></div>
-                        <div class="h-2 bg-gray-600 rounded col-span-1"></div>
-                      </div>
-                      <div class="h-2 bg-gray-600 rounded"></div>
-                    </div>
-                  </div>
-                </div>
-                <p class="mt-4 text-sm text-gray-500">
-                  In a production environment, this would display an embedded Tableau dashboard.
-                </p>
-              </div>
-            </div>
-          </div>
-        `;
-        vizRef.current.appendChild(vizPlaceholder);
-      }
-    };
-    
-    loadViz();
-    
-    return () => {
-      // Cleanup if needed
-      if (vizRef.current) {
-        vizRef.current.innerHTML = '';
-      }
-    };
-  }, [url, height]);
+  const embedUrl = getEmbedUrl(url);
 
   return (
-    <div 
-      ref={vizRef} 
-      className="bg-gray-800 rounded-lg shadow-lg overflow-hidden" 
-      style={{ height: `${height}px` }}
-    ></div>
+    <div className="w-full bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+      <div className="bg-gray-700 px-4 py-2 border-b border-gray-600">
+        <h3 className="text-sm font-medium text-gray-200">{title}</h3>
+      </div>
+      <div 
+        className="w-full overflow-hidden"
+        style={{ height: `${height}px` }}
+      >
+        <iframe
+          src={embedUrl}
+          width="100%"
+          height="100%"
+          frameBorder="0"
+          allowFullScreen
+          title={title}
+          className="w-full h-full"
+          loading="lazy"
+          sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+        />
+      </div>
+      <div className="bg-gray-700 px-4 py-2 text-xs text-gray-400 border-t border-gray-600">
+        <a 
+          href={url} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="hover:text-blue-400 transition-colors"
+        >
+          View full dashboard on Tableau Public →
+        </a>
+      </div>
+    </div>
   );
 };
 
