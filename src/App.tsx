@@ -9,6 +9,9 @@ import Footer from './components/Footer';
 import Resume from './components/Resume';
 import ProjectDetail from './components/ProjectDetail';
 import ProjectPage from './components/ProjectPage';
+import AboutPage from './components/AboutPage';
+import ProjectsPage from './components/ProjectsPage';
+import ContactPage from './components/ContactPage';
 import { Project } from './types';
 
 function App() {
@@ -33,6 +36,9 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<MainContent />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/contact" element={<ContactPage />} />
           <Route path="/resume" element={<Resume />} />
           <Route path="/projects/dog-shelter-analytics" element={<ProjectPage />} />
         </Routes>
