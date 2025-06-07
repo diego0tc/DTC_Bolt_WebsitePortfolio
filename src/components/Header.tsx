@@ -22,34 +22,31 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollTo = (id: string) => {
+  const handleNavigation = (path: string) => {
+    navigate(path);
+    setIsMenuOpen(false);
+    // Scroll to top when navigating to a new page
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 100);
+  };
+
+  const scrollToSection = (sectionId: string) => {
     if (location.pathname !== '/') {
+      // If not on home page, navigate to home first, then scroll
       navigate('/');
       setTimeout(() => {
-        const element = document.getElementById(id);
+        const element = document.getElementById(sectionId);
         if (element) {
           element.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       }, 100);
     } else {
-      const element = document.getElementById(id);
+      // If on home page, just scroll to section
+      const element = document.getElementById(sectionId);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
-    }
-    setIsMenuOpen(false);
-  };
-
-  const handleNavigation = (path: string, sectionId?: string) => {
-    if (sectionId && location.pathname === '/') {
-      // If we're on home page and clicking a section, scroll to it
-      scrollTo(sectionId);
-    } else {
-      // Navigate to the dedicated page and scroll to top
-      navigate(path);
-      setTimeout(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }, 100);
     }
     setIsMenuOpen(false);
   };
@@ -61,12 +58,7 @@ const Header: React.FC = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
           <button 
-            onClick={() => {
-              navigate('/');
-              setTimeout(() => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }, 100);
-            }}
+            onClick={() => handleNavigation('/')}
             className="text-white font-bold text-2xl hover:text-gray-300 transition-colors"
           >
             DataViz Portfolio
@@ -75,36 +67,31 @@ const Header: React.FC = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
             <button 
-              onClick={() => handleNavigation('/', 'home')} 
+              onClick={() => scrollToSection('home')} 
               className="text-white hover:text-gray-300 transition-colors"
             >
               Home
             </button>
             <button 
-              onClick={() => handleNavigation('/about', 'about')} 
+              onClick={() => handleNavigation('/about')} 
               className="text-white hover:text-gray-300 transition-colors"
             >
               About
             </button>
             <button 
-              onClick={() => handleNavigation('/projects', 'projects')} 
+              onClick={() => handleNavigation('/projects')} 
               className="text-white hover:text-gray-300 transition-colors"
             >
               Projects
             </button>
             <button 
-              onClick={() => {
-                navigate('/resume');
-                setTimeout(() => {
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }, 100);
-              }} 
+              onClick={() => handleNavigation('/resume')} 
               className="text-white hover:text-gray-300 transition-colors"
             >
               Resume
             </button>
             <button 
-              onClick={() => handleNavigation('/contact', 'contact')} 
+              onClick={() => handleNavigation('/contact')} 
               className="text-white hover:text-gray-300 transition-colors"
             >
               Contact
@@ -122,37 +109,31 @@ const Header: React.FC = () => {
           <div className="md:hidden bg-gray-800 mt-4 rounded-lg p-4">
             <div className="flex flex-col space-y-4">
               <button 
-                onClick={() => handleNavigation('/', 'home')} 
+                onClick={() => scrollToSection('home')} 
                 className="text-white hover:text-gray-300 transition-colors text-left"
               >
                 Home
               </button>
               <button 
-                onClick={() => handleNavigation('/about', 'about')} 
+                onClick={() => handleNavigation('/about')} 
                 className="text-white hover:text-gray-300 transition-colors text-left"
               >
                 About
               </button>
               <button 
-                onClick={() => handleNavigation('/projects', 'projects')} 
+                onClick={() => handleNavigation('/projects')} 
                 className="text-white hover:text-gray-300 transition-colors text-left"
               >
                 Projects
               </button>
               <button 
-                onClick={() => {
-                  navigate('/resume');
-                  setTimeout(() => {
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                  }, 100);
-                  setIsMenuOpen(false);
-                }} 
+                onClick={() => handleNavigation('/resume')} 
                 className="text-white hover:text-gray-300 transition-colors text-left"
               >
                 Resume
               </button>
               <button 
-                onClick={() => handleNavigation('/contact', 'contact')} 
+                onClick={() => handleNavigation('/contact')} 
                 className="text-white hover:text-gray-300 transition-colors text-left"
               >
                 Contact
