@@ -1,8 +1,8 @@
-name: Deploy to Firebase Hosting
+name: Deploy Portfolio Website
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, bolt-ui, content-updates, development ]
   pull_request:
     branches: [ main ]
 
@@ -26,12 +26,57 @@ jobs:
     - name: Build Project
       run: npm run build
       
-    - name: Deploy to Firebase Hosting
+    - name: Deploy to Production (main branch)
+      if: github.ref == 'refs/heads/main'
       uses: FirebaseExtended/action-hosting-deploy@v0
       with:
         repoToken: '${{ secrets.GITHUB_TOKEN }}'
         firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_WEBSITE_PORTFOLIO_DTC }}'
         channelId: live
+        projectId: website-portfolio-dtc
+      env:
+        FIREBASE_CLI_EXPERIMENTS: webframeworks
+        
+    - name: Deploy UI Preview (bolt-ui branch)
+      if: github.ref == 'refs/heads/bolt-ui'
+      uses: FirebaseExtended/action-hosting-deploy@v0
+      with:
+        repoToken: '${{ secrets.GITHUB_TOKEN }}'
+        firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_WEBSITE_PORTFOLIO_DTC }}'
+        channelId: bolt-ui-preview
+        projectId: website-portfolio-dtc
+      env:
+        FIREBASE_CLI_EXPERIMENTS: webframeworks
+        
+    - name: Deploy Content Preview (content-updates branch)
+      if: github.ref == 'refs/heads/content-updates'
+      uses: FirebaseExtended/action-hosting-deploy@v0
+      with:
+        repoToken: '${{ secrets.GITHUB_TOKEN }}'
+        firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_WEBSITE_PORTFOLIO_DTC }}'
+        channelId: content-preview
+        projectId: website-portfolio-dtc
+      env:
+        FIREBASE_CLI_EXPERIMENTS: webframeworks
+        
+    - name: Deploy Development Staging (development branch)
+      if: github.ref == 'refs/heads/development'
+      uses: FirebaseExtended/action-hosting-deploy@v0
+      with:
+        repoToken: '${{ secrets.GITHUB_TOKEN }}'
+        firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_WEBSITE_PORTFOLIO_DTC }}'
+        channelId: dev-staging
+        projectId: website-portfolio-dtc
+      env:
+        FIREBASE_CLI_EXPERIMENTS: webframeworks
+        
+    - name: Preview Deployment (Pull Requests)
+      if: github.event_name == 'pull_request'
+      uses: FirebaseExtended/action-hosting-deploy@v0
+      with:
+        repoToken: '${{ secrets.GITHUB_TOKEN }}'
+        firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_WEBSITE_PORTFOLIO_DTC }}'
+        channelId: pr-${{ github.event.number }}
         projectId: website-portfolio-dtc
       env:
         FIREBASE_CLI_EXPERIMENTS: webframeworks 
