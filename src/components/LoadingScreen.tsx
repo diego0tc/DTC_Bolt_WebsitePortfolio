@@ -41,11 +41,11 @@ const LoadingScreen: React.FC<{ onComplete: () => void }> = ({ onComplete }) => 
         isVisible ? 'opacity-100' : 'opacity-0'
       }`}
     >
-      {/* Background image for data analytics theme */}
+      {/* Abstract data visualization background */}
       <div 
-        className="absolute inset-0 bg-cover bg-center opacity-10"
+        className="absolute inset-0 bg-cover bg-center opacity-15"
         style={{
-          backgroundImage: 'url("https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg")'
+          backgroundImage: 'url("https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg")'
         }}
       ></div>
 
