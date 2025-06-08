@@ -34,10 +34,10 @@ const Hero: React.FC = () => {
       <div className="container mx-auto px-4 z-10">
         <div className="max-w-3xl mx-auto text-center">
           <h1 ref={titleRef} className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 opacity-0 transition-opacity duration-1000">
-            Data Science & Analytics Portfolio
+            Turning Questions into Business Living Systems
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 mb-8">
-            Transforming complex data into actionable insights and elegant solutions
+            Questions surface, data flows, answers pulse across the org; my job is making that loop automatic and unforgettable
           </p>
           <div className="flex flex-wrap justify-center gap-4 mb-12">
             <div className="bg-gray-800/70 backdrop-blur-sm p-4 rounded-lg flex items-center border border-gray-700/50 hover:border-red-400/50 transition-all duration-300">
