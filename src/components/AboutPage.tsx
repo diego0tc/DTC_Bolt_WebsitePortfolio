@@ -1,30 +1,25 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, Code, BarChart4, Lightbulb, Database, Award, Calendar, MapPin } from 'lucide-react';
+import { ArrowLeft, BarChart4, Database, GitBranch, Award, Calendar, MapPin } from 'lucide-react';
 
 const AboutPage: React.FC = () => {
   const navigate = useNavigate();
 
   const skills = [
     { 
-      category: 'Data Analysis',
-      items: ['SQL', 'Python', 'R', 'Excel', 'Statistical Analysis', 'A/B Testing'],
+      category: 'Data Analysis & Insight',
+      items: ['SQL', 'Python', 'R', 'Statistical Analysis', 'A/B Testing', 'Data Visualization'],
       icon: <BarChart4 className="w-10 h-10 text-emerald-400" />
     },
     {
-      category: 'Data Science',
-      items: ['Machine Learning', 'Deep Learning', 'NLP', 'Time Series Analysis', 'Clustering', 'Regression'],
-      icon: <Lightbulb className="w-10 h-10 text-yellow-400" />
-    },
-    {
-      category: 'Data Engineering',
-      items: ['ETL Pipelines', 'AWS', 'Spark', 'Kafka', 'Airflow', 'Databricks'],
+      category: 'Analytics Engineering',
+      items: ['ETL Pipelines', 'Data Modeling', 'dbt', 'Airflow', 'Data Quality', 'Performance Optimization'],
       icon: <Database className="w-10 h-10 text-blue-400" />
     },
     {
-      category: 'Programming',
-      items: ['Python', 'SQL', 'JavaScript', 'R', 'Scala', 'Java'],
-      icon: <Code className="w-10 h-10 text-red-400" />
+      category: 'Data Architecture & Workflow',
+      items: ['AWS', 'Spark', 'Kafka', 'Databricks', 'CI/CD', 'Infrastructure as Code'],
+      icon: <GitBranch className="w-10 h-10 text-red-400" />
     }
   ];
 
@@ -170,24 +165,24 @@ const AboutPage: React.FC = () => {
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center">
                 <div className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Lightbulb className="text-white" size={24} />
+                  <BarChart4 className="text-white" size={24} />
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-3">Innovation First</h3>
-                <p className="text-gray-300">Always seeking creative solutions to complex problems through cutting-edge techniques.</p>
+                <h3 className="text-xl font-semibold text-white mb-3">Insight-Driven</h3>
+                <p className="text-gray-300">Transforming raw data into meaningful insights that drive strategic decisions.</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <BarChart4 className="text-white" size={24} />
+                  <Database className="text-white" size={24} />
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-3">Data-Driven</h3>
-                <p className="text-gray-300">Every decision backed by solid data analysis and statistical rigor.</p>
+                <h3 className="text-xl font-semibold text-white mb-3">Engineering Excellence</h3>
+                <p className="text-gray-300">Building robust, scalable data infrastructure that powers analytics at scale.</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Award className="text-white" size={24} />
+                  <GitBranch className="text-white" size={24} />
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-3">Impact Focused</h3>
-                <p className="text-gray-300">Measuring success by the real-world impact of analytical solutions.</p>
+                <h3 className="text-xl font-semibold text-white mb-3">Workflow Optimization</h3>
+                <p className="text-gray-300">Designing efficient data architectures that streamline analytics workflows.</p>
               </div>
             </div>
           </div>
@@ -229,10 +224,10 @@ const AboutPage: React.FC = () => {
           </div>
         </div>
 
-        {/* Skills Section */}
+        {/* Skills Section - Now with only 3 categories */}
         <div>
           <h2 className="text-3xl font-bold text-white mb-8 text-center">Technical Expertise</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {skills.map((skill, index) => (
               <div key={index} className="bg-gray-900 rounded-lg p-6 hover:bg-gray-800 transition-colors duration-300 border border-gray-800">
                 <div className="flex items-center mb-4">

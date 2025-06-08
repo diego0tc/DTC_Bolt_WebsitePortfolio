@@ -1,5 +1,5 @@
 import React from 'react';
-import { Code, BarChart4, Lightbulb, Database, ExternalLink } from 'lucide-react';
+import { BarChart4, Database, GitBranch, ExternalLink } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const About: React.FC = () => {
@@ -7,24 +7,19 @@ const About: React.FC = () => {
 
   const skills = [
     { 
-      category: 'Data Analysis',
-      items: ['SQL', 'Python', 'R', 'Excel', 'Statistical Analysis', 'A/B Testing'],
+      category: 'Data Analysis & Insight',
+      items: ['SQL', 'Python', 'R', 'Statistical Analysis', 'A/B Testing', 'Data Visualization'],
       icon: <BarChart4 className="w-10 h-10 text-emerald-400" />
     },
     {
-      category: 'Data Science',
-      items: ['Machine Learning', 'Deep Learning', 'NLP', 'Time Series Analysis', 'Clustering', 'Regression'],
-      icon: <Lightbulb className="w-10 h-10 text-yellow-400" />
-    },
-    {
-      category: 'Data Engineering',
-      items: ['ETL Pipelines', 'AWS', 'Spark', 'Kafka', 'Airflow', 'Databricks'],
+      category: 'Analytics Engineering',
+      items: ['ETL Pipelines', 'Data Modeling', 'dbt', 'Airflow', 'Data Quality', 'Performance Optimization'],
       icon: <Database className="w-10 h-10 text-blue-400" />
     },
     {
-      category: 'Programming',
-      items: ['Python', 'SQL', 'JavaScript', 'R', 'Scala', 'Java'],
-      icon: <Code className="w-10 h-10 text-red-400" />
+      category: 'Data Architecture & Workflow',
+      items: ['AWS', 'Spark', 'Kafka', 'Databricks', 'CI/CD', 'Infrastructure as Code'],
+      icon: <GitBranch className="w-10 h-10 text-red-400" />
     }
   ];
 
@@ -121,10 +116,10 @@ const About: React.FC = () => {
           </div>
         </div>
         
-        {/* Skills Section */}
+        {/* Skills Section - Now with only 3 categories */}
         <div>
           <h3 className="text-2xl font-bold text-white mb-8 text-center">Skills & Expertise</h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {skills.map((skill, index) => (
               <div key={index} className="bg-gray-800 rounded-lg p-6 hover:bg-gray-750 transition-colors duration-300 border border-gray-700 hover:border-gray-600">
                 <div className="flex items-center mb-4">
