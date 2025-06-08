@@ -51,22 +51,22 @@ const ContactPage: React.FC = () => {
     {
       title: "Data Science Consulting",
       description: "Strategic guidance on data science initiatives and implementation",
-      icon: <MessageCircle className="text-blue-400\" size={24} />
+      icon: <MessageCircle className="text-red-400\" size={24} />
     },
     {
       title: "Project Collaboration",
       description: "Joint development of analytics solutions and research projects",
-      icon: <CheckCircle className="text-green-400" size={24} />
+      icon: <CheckCircle className="text-emerald-400" size={24} />
     },
     {
       title: "Speaking & Workshops",
       description: "Technical presentations and training sessions for your team",
-      icon: <Clock className="text-purple-400\" size={24} />
+      icon: <Clock className="text-blue-400\" size={24} />
     }
   ];
 
   return (
-    <div className="min-h-screen bg-gray-900 pt-20">
+    <div className="min-h-screen bg-gray-950 pt-20">
       {/* Hero Section */}
       <div 
         className="h-[400px] relative bg-cover bg-center"
@@ -74,12 +74,12 @@ const ContactPage: React.FC = () => {
           backgroundImage: 'url("https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg")'
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-gray-900/70 to-gray-900"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-950/70 to-gray-950"></div>
         <div className="container mx-auto px-4 h-full flex items-center relative">
           <div>
             <button
               onClick={() => navigate('/')}
-              className="flex items-center text-gray-300 hover:text-white mb-6 transition-colors"
+              className="flex items-center text-gray-300 hover:text-red-400 mb-6 transition-colors"
             >
               <ArrowLeft size={20} className="mr-2" />
               Back to Home
@@ -101,7 +101,7 @@ const ContactPage: React.FC = () => {
           <h2 className="text-3xl font-bold text-white mb-8 text-center">How We Can Work Together</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {collaborationTypes.map((type, index) => (
-              <div key={index} className="bg-gray-800 rounded-xl p-6 text-center hover:bg-gray-700 transition-colors">
+              <div key={index} className="bg-gray-900 rounded-xl p-6 text-center hover:bg-gray-800 transition-colors border border-gray-800">
                 <div className="flex justify-center mb-4">
                   {type.icon}
                 </div>
@@ -114,13 +114,13 @@ const ContactPage: React.FC = () => {
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Form */}
-          <div className="bg-gray-800 rounded-xl p-8">
+          <div className="bg-gray-900 rounded-xl p-8 border border-gray-800">
             <h2 className="text-2xl font-bold text-white mb-6">Send a Message</h2>
             
             {isSubmitted ? (
-              <div className="bg-green-800 bg-opacity-20 border border-green-700 text-green-400 rounded-lg p-6 flex items-center">
-                <div className="w-12 h-12 bg-green-500 bg-opacity-30 rounded-full flex items-center justify-center mr-4">
-                  <Send size={24} className="text-green-400" />
+              <div className="bg-emerald-800/20 border border-emerald-700 text-emerald-400 rounded-lg p-6 flex items-center">
+                <div className="w-12 h-12 bg-emerald-500/30 rounded-full flex items-center justify-center mr-4">
+                  <Send size={24} className="text-emerald-400" />
                 </div>
                 <div>
                   <h3 className="font-medium text-lg mb-2">Message sent successfully!</h3>
@@ -139,7 +139,7 @@ const ContactPage: React.FC = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                      className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-red-500 focus:outline-none focus:ring-2 focus:ring-red-500/20"
                       placeholder="Your full name"
                     />
                   </div>
@@ -153,7 +153,7 @@ const ContactPage: React.FC = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                      className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-red-500 focus:outline-none focus:ring-2 focus:ring-red-500/20"
                       placeholder="your.email@example.com"
                     />
                   </div>
@@ -166,7 +166,7 @@ const ContactPage: React.FC = () => {
                     name="projectType"
                     value={formData.projectType}
                     onChange={handleChange}
-                    className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-red-500 focus:outline-none focus:ring-2 focus:ring-red-500/20"
                   >
                     <option value="">Select project type (optional)</option>
                     <option value="consulting">Data Science Consulting</option>
@@ -185,7 +185,7 @@ const ContactPage: React.FC = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-red-500 focus:outline-none focus:ring-2 focus:ring-red-500/20"
                     placeholder="Brief description of your inquiry"
                   />
                 </div>
@@ -199,7 +199,7 @@ const ContactPage: React.FC = () => {
                     onChange={handleChange}
                     required
                     rows={6}
-                    className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-red-500 focus:outline-none focus:ring-2 focus:ring-red-500/20"
                     placeholder="Tell me about your project, goals, timeline, and any specific requirements..."
                   ></textarea>
                 </div>
@@ -207,10 +207,10 @@ const ContactPage: React.FC = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`bg-indigo-600 text-white px-8 py-3 rounded-lg flex items-center justify-center w-full font-medium transition-all text-lg
+                  className={`bg-red-500 text-white px-8 py-3 rounded-lg flex items-center justify-center w-full font-medium transition-all text-lg
                     ${isSubmitting 
                       ? 'opacity-70 cursor-not-allowed' 
-                      : 'hover:bg-indigo-700 hover:shadow-lg'}`
+                      : 'hover:bg-red-600 hover:shadow-lg hover:shadow-red-500/25'}`
                     }
                 >
                   {isSubmitting ? (
@@ -234,7 +234,7 @@ const ContactPage: React.FC = () => {
           {/* Contact Information */}
           <div className="space-y-8">
             {/* Social Links */}
-            <div className="bg-gray-800 rounded-xl p-8">
+            <div className="bg-gray-900 rounded-xl p-8 border border-gray-800">
               <h2 className="text-2xl font-bold text-white mb-6">Connect on Social</h2>
               <p className="text-gray-300 mb-6">
                 Follow my work and connect with me on professional platforms for ongoing 
@@ -248,10 +248,10 @@ const ContactPage: React.FC = () => {
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center p-4 bg-gray-700 rounded-lg hover:bg-indigo-600 transition-all duration-300 group"
+                    className="flex items-center p-4 bg-gray-800 rounded-lg hover:bg-red-500 transition-all duration-300 group border border-gray-700 hover:border-red-400"
                     aria-label={link.name}
                   >
-                    <div className="text-indigo-400 group-hover:text-white transition-colors mr-4">
+                    <div className="text-red-400 group-hover:text-white transition-colors mr-4">
                       {getIcon(link.icon)}
                     </div>
                     <div>
@@ -268,15 +268,15 @@ const ContactPage: React.FC = () => {
             </div>
 
             {/* Response Time */}
-            <div className="bg-gradient-to-r from-indigo-900/30 to-purple-900/30 rounded-xl p-8 border border-indigo-700/30">
+            <div className="bg-gradient-to-r from-red-900/20 to-orange-900/20 rounded-xl p-8 border border-red-700/30">
               <h3 className="text-xl font-bold text-white mb-4">Response Time</h3>
               <div className="space-y-3">
                 <div className="flex items-center">
-                  <Clock className="text-indigo-400 mr-3" size={20} />
+                  <Clock className="text-red-400 mr-3" size={20} />
                   <span className="text-gray-300">Email: Within 24 hours</span>
                 </div>
                 <div className="flex items-center">
-                  <Linkedin className="text-indigo-400 mr-3" size={20} />
+                  <Linkedin className="text-red-400 mr-3" size={20} />
                   <span className="text-gray-300">LinkedIn: Within 48 hours</span>
                 </div>
               </div>
@@ -286,20 +286,20 @@ const ContactPage: React.FC = () => {
             </div>
 
             {/* Availability */}
-            <div className="bg-gray-800 rounded-xl p-8">
+            <div className="bg-gray-900 rounded-xl p-8 border border-gray-800">
               <h3 className="text-xl font-bold text-white mb-4">Current Availability</h3>
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
                   <span className="text-gray-300">New Projects</span>
-                  <span className="px-3 py-1 bg-green-600 text-white rounded-full text-sm">Available</span>
+                  <span className="px-3 py-1 bg-emerald-500 text-white rounded-full text-sm">Available</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-gray-300">Consulting</span>
-                  <span className="px-3 py-1 bg-green-600 text-white rounded-full text-sm">Available</span>
+                  <span className="px-3 py-1 bg-emerald-500 text-white rounded-full text-sm">Available</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-gray-300">Speaking Events</span>
-                  <span className="px-3 py-1 bg-yellow-600 text-white rounded-full text-sm">Limited</span>
+                  <span className="px-3 py-1 bg-yellow-500 text-white rounded-full text-sm">Limited</span>
                 </div>
               </div>
             </div>

@@ -9,7 +9,7 @@ const AboutPage: React.FC = () => {
     { 
       category: 'Data Analysis',
       items: ['SQL', 'Python', 'R', 'Excel', 'Statistical Analysis', 'A/B Testing'],
-      icon: <BarChart4 className="w-10 h-10 text-blue-400" />
+      icon: <BarChart4 className="w-10 h-10 text-emerald-400" />
     },
     {
       category: 'Data Science',
@@ -19,12 +19,12 @@ const AboutPage: React.FC = () => {
     {
       category: 'Data Engineering',
       items: ['ETL Pipelines', 'AWS', 'Spark', 'Kafka', 'Airflow', 'Databricks'],
-      icon: <Database className="w-10 h-10 text-green-400" />
+      icon: <Database className="w-10 h-10 text-blue-400" />
     },
     {
       category: 'Programming',
       items: ['Python', 'SQL', 'JavaScript', 'R', 'Scala', 'Java'],
-      icon: <Code className="w-10 h-10 text-purple-400" />
+      icon: <Code className="w-10 h-10 text-red-400" />
     }
   ];
 
@@ -73,20 +73,20 @@ const AboutPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-900 pt-20">
+    <div className="min-h-screen bg-gray-950 pt-20">
       {/* Hero Section */}
       <div 
         className="h-[500px] relative bg-cover bg-center"
         style={{
-          backgroundImage: 'url("https://images.pexels.com/photos/2004161/pexels-photo-2004161.jpeg")'
+          backgroundImage: 'url("https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg")'
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-gray-900/70 to-gray-900"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-950/70 to-gray-950"></div>
         <div className="container mx-auto px-4 h-full flex items-center relative">
           <div>
             <button
               onClick={() => navigate('/')}
-              className="flex items-center text-gray-300 hover:text-white mb-6 transition-colors"
+              className="flex items-center text-gray-300 hover:text-red-400 mb-6 transition-colors"
             >
               <ArrowLeft size={20} className="mr-2" />
               Back to Home
@@ -109,41 +109,41 @@ const AboutPage: React.FC = () => {
             {/* Professional Photo */}
             <div className="flex-shrink-0">
               <div className="relative">
-                <div className="w-96 h-96 rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-indigo-500 to-purple-600 p-1">
-                  <div className="w-full h-full rounded-xl bg-gray-700 flex items-center justify-center">
+                <div className="w-96 h-96 rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-red-500 to-orange-500 p-1">
+                  <div className="w-full h-full rounded-xl bg-gray-800 flex items-center justify-center">
                     <div className="text-center text-gray-400">
-                      <div className="w-32 h-32 mx-auto mb-4 rounded-full bg-gray-600 flex items-center justify-center">
-                        <span className="text-4xl font-bold">JD</span>
+                      <div className="w-32 h-32 mx-auto mb-4 rounded-full bg-gray-700 flex items-center justify-center">
+                        <span className="text-4xl font-bold">D</span>
                       </div>
                       <p className="text-lg font-medium">Professional Photo</p>
                       <p className="text-sm mt-1">(LinkedIn Profile Image)</p>
                     </div>
                   </div>
                 </div>
-                <div className="absolute -top-6 -right-6 w-12 h-12 bg-indigo-500 rounded-full opacity-70"></div>
-                <div className="absolute -bottom-6 -left-6 w-8 h-8 bg-purple-500 rounded-full opacity-70"></div>
+                <div className="absolute -top-6 -right-6 w-12 h-12 bg-red-500 rounded-full opacity-70"></div>
+                <div className="absolute -bottom-6 -left-6 w-8 h-8 bg-orange-500 rounded-full opacity-70"></div>
               </div>
             </div>
             
             {/* Personal Info */}
             <div className="flex-1">
-              <div className="bg-gray-800 rounded-xl p-8">
-                <h2 className="text-3xl font-bold text-white mb-6">John Doe</h2>
+              <div className="bg-gray-900 rounded-xl p-8 border border-gray-800">
+                <h2 className="text-3xl font-bold text-white mb-6">Diego Tejada Cardenas</h2>
                 <div className="grid md:grid-cols-2 gap-6 mb-8">
                   <div className="flex items-center text-gray-300">
-                    <MapPin className="text-indigo-400 mr-3" size={20} />
+                    <MapPin className="text-red-400 mr-3" size={20} />
                     <span>Toronto, ON, Canada</span>
                   </div>
                   <div className="flex items-center text-gray-300">
-                    <Calendar className="text-indigo-400 mr-3" size={20} />
+                    <Calendar className="text-emerald-400 mr-3" size={20} />
                     <span>8+ Years Experience</span>
                   </div>
                   <div className="flex items-center text-gray-300">
-                    <Award className="text-indigo-400 mr-3" size={20} />
-                    <span>MIT Graduate</span>
+                    <Award className="text-blue-400 mr-3" size={20} />
+                    <span>Economics Graduate</span>
                   </div>
                   <div className="flex items-center text-gray-300">
-                    <Database className="text-indigo-400 mr-3" size={20} />
+                    <Database className="text-orange-400 mr-3" size={20} />
                     <span>25+ Projects Completed</span>
                   </div>
                 </div>
@@ -151,7 +151,7 @@ const AboutPage: React.FC = () => {
                 <p className="text-gray-300 leading-relaxed text-lg mb-6">
                   I'm a passionate data scientist who believes in the power of data to drive meaningful change. 
                   My journey began with a fascination for patterns and numbers, which led me to pursue advanced 
-                  studies in data science at MIT. Today, I help organizations unlock the value hidden in their data.
+                  studies in economics and data science. Today, I help organizations unlock the value hidden in their data.
                 </p>
                 
                 <p className="text-gray-300 leading-relaxed text-lg">
@@ -165,25 +165,25 @@ const AboutPage: React.FC = () => {
 
         {/* Philosophy Section */}
         <div className="mb-16">
-          <div className="bg-gradient-to-r from-indigo-900/30 to-purple-900/30 rounded-xl p-8 border border-indigo-700/30">
+          <div className="bg-gradient-to-r from-red-900/20 to-orange-900/20 rounded-xl p-8 border border-red-700/30">
             <h2 className="text-3xl font-bold text-white mb-6 text-center">My Philosophy</h2>
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center">
-                <div className="w-16 h-16 bg-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Lightbulb className="text-white" size={24} />
                 </div>
                 <h3 className="text-xl font-semibold text-white mb-3">Innovation First</h3>
                 <p className="text-gray-300">Always seeking creative solutions to complex problems through cutting-edge techniques.</p>
               </div>
               <div className="text-center">
-                <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4">
                   <BarChart4 className="text-white" size={24} />
                 </div>
                 <h3 className="text-xl font-semibold text-white mb-3">Data-Driven</h3>
                 <p className="text-gray-300">Every decision backed by solid data analysis and statistical rigor.</p>
               </div>
               <div className="text-center">
-                <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Award className="text-white" size={24} />
                 </div>
                 <h3 className="text-xl font-semibold text-white mb-3">Impact Focused</h3>
@@ -200,12 +200,12 @@ const AboutPage: React.FC = () => {
             {timeline.map((item, index) => (
               <div key={index} className="flex items-start">
                 <div className="flex-shrink-0 w-32 text-right mr-8">
-                  <span className="text-indigo-400 font-semibold">{item.year}</span>
+                  <span className="text-red-400 font-semibold">{item.year}</span>
                 </div>
-                <div className="flex-shrink-0 w-4 h-4 bg-indigo-600 rounded-full mt-2 mr-8"></div>
-                <div className="flex-1 bg-gray-800 rounded-lg p-6">
+                <div className="flex-shrink-0 w-4 h-4 bg-red-500 rounded-full mt-2 mr-8"></div>
+                <div className="flex-1 bg-gray-900 rounded-lg p-6 border border-gray-800">
                   <h3 className="text-xl font-semibold text-white mb-2">{item.role}</h3>
-                  <p className="text-indigo-400 mb-3">{item.company}</p>
+                  <p className="text-red-400 mb-3">{item.company}</p>
                   <p className="text-gray-300">{item.description}</p>
                 </div>
               </div>
@@ -218,10 +218,10 @@ const AboutPage: React.FC = () => {
           <h2 className="text-3xl font-bold text-white mb-8 text-center">Key Achievements</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {achievements.map((achievement, index) => (
-              <div key={index} className="bg-gray-800 rounded-lg p-6 hover:bg-gray-700 transition-colors">
+              <div key={index} className="bg-gray-900 rounded-lg p-6 hover:bg-gray-800 transition-colors border border-gray-800">
                 <div className="flex justify-between items-start mb-3">
                   <h3 className="text-xl font-semibold text-white">{achievement.title}</h3>
-                  <span className="text-indigo-400 text-sm font-medium">{achievement.year}</span>
+                  <span className="text-red-400 text-sm font-medium">{achievement.year}</span>
                 </div>
                 <p className="text-gray-300">{achievement.description}</p>
               </div>
@@ -234,7 +234,7 @@ const AboutPage: React.FC = () => {
           <h2 className="text-3xl font-bold text-white mb-8 text-center">Technical Expertise</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {skills.map((skill, index) => (
-              <div key={index} className="bg-gray-800 rounded-lg p-6 hover:bg-gray-700 transition-colors duration-300">
+              <div key={index} className="bg-gray-900 rounded-lg p-6 hover:bg-gray-800 transition-colors duration-300 border border-gray-800">
                 <div className="flex items-center mb-4">
                   {skill.icon}
                   <h4 className="text-xl font-semibold text-white ml-3">{skill.category}</h4>
@@ -242,7 +242,7 @@ const AboutPage: React.FC = () => {
                 <ul className="text-gray-300">
                   {skill.items.map((item, i) => (
                     <li key={i} className="mb-2 flex items-center">
-                      <span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+                      <span className="w-2 h-2 bg-gray-500 rounded-full mr-2"></span>
                       {item}
                     </li>
                   ))}

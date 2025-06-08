@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --color-primary: #6366f1;
-  --color-secondary: #4b5563;
+  --color-primary: #ef4444;
+  --color-secondary: #374151;
   --color-accent: #8b5cf6;
   --color-success: #10b981;
   --color-warning: #f59e0b;
@@ -16,7 +16,16 @@ html {
 }
 
 body {
-  @apply bg-gray-900 text-gray-100 font-sans;
+  @apply bg-gray-950 text-gray-100 font-sans;
+}
+
+/* Custom gray shades for the darker theme */
+.bg-gray-750 {
+  background-color: #2d3748;
+}
+
+.hover\:bg-gray-750:hover {
+  background-color: #2d3748;
 }
 
 @keyframes fadeIn {

@@ -12,10 +12,16 @@ import ProjectPage from './components/ProjectPage';
 import AboutPage from './components/AboutPage';
 import ProjectsPage from './components/ProjectsPage';
 import ContactPage from './components/ContactPage';
+import LoadingScreen from './components/LoadingScreen';
 import { Project } from './types';
 
 function App() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const handleLoadingComplete = () => {
+    setIsLoading(false);
+  };
 
   const MainContent = () => (
     <>
@@ -29,6 +35,10 @@ function App() {
       />
     </>
   );
+
+  if (isLoading) {
+    return <LoadingScreen onComplete={handleLoadingComplete} />;
+  }
 
   return (
     <Router>
