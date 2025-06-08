@@ -7,23 +7,18 @@ const About: React.FC = () => {
 
   const skills = [
     { 
-      category: 'Data Analysis',
-      items: ['SQL', 'Python', 'R', 'Excel', 'Statistical Analysis', 'A/B Testing'],
+      category: 'Data Analysis & Insight',
+      items: ['SQL (BigQuery)', 'Tableau Cloud dashboards', 'Econometrics & Pareto analysis', 'Exploratory notebooks (pandas)', 'KPI variance & root-cause'],
       icon: <BarChart4 className="w-10 h-10 text-emerald-400" />
     },
     {
-      category: 'Data Science',
-      items: ['Machine Learning', 'Deep Learning', 'NLP', 'Time Series Analysis', 'Clustering', 'Regression'],
-      icon: <Lightbulb className="w-10 h-10 text-yellow-400" />
-    },
-    {
-      category: 'Data Engineering',
-      items: ['ETL Pipelines', 'AWS', 'Spark', 'Kafka', 'Airflow', 'Databricks'],
+      category: 'Analytics Engineering',
+      items: ['BigQuery schema modelling', 'Cloud Run + Python ETL jobs', 'Firebase & LangChain mini-apps', 'GitHub CI/CD & unit tests', 'Cost tuning & query optimization'],
       icon: <Database className="w-10 h-10 text-blue-400" />
     },
     {
-      category: 'Programming',
-      items: ['Python', 'SQL', 'JavaScript', 'R', 'Scala', 'Java'],
+      category: 'Data Architecture & Workflow',
+      items: ['End-to-end DAG design (Make.com / Airflow)', 'Orchestration + scheduling (Composer)', 'Data catalog / naming standards', 'Infra-as-code (YAML, Terraform)', 'Monitoring & SLA alerts to Slack'],
       icon: <Code className="w-10 h-10 text-red-400" />
     }
   ];
@@ -74,33 +69,30 @@ const About: React.FC = () => {
             <div className="flex-1">
               <div className="bg-gray-800 rounded-xl p-8 h-full border border-gray-700">
                 <h3 className="text-3xl font-bold text-white mb-6">Background & Expertise</h3>
-                <p className="text-gray-300 leading-relaxed mb-6 text-lg">
-                  With over 8 years of experience in data science and analytics, I specialize in transforming 
-                  complex data into actionable insights. My expertise spans across multiple industries including 
-                  healthcare, finance, and retail, where I've delivered impactful solutions that drive business growth.
-                </p>
                 <p className="text-gray-300 leading-relaxed mb-8 text-lg">
-                  I hold a Master's degree in Data Science from MIT and have multiple certifications in 
-                  advanced analytics and machine learning techniques.
+                  I'm an economist-turned-data leader who built Weed Me's first cloud analytics backbone. 
+                  Today I ship BigQuery pipelines, Tableau dashboards, and internal Firebase apps—plus sprinkle 
+                  AI where it saves clicks. My blend of economics, statistics, and product thinking lets me 
+                  connect business questions to data architecture—fast.
                 </p>
                 
                 <h4 className="text-xl font-semibold text-white mb-4">What sets me apart:</h4>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="flex items-start">
                     <div className="w-2 h-2 bg-red-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <p className="text-gray-300">Strong focus on translating technical findings into business value</p>
+                    <p className="text-gray-300">End-to-end ownership – raw data ➜ cleaned ➜ visualised ➜ adopted</p>
                   </div>
                   <div className="flex items-start">
                     <div className="w-2 h-2 bg-emerald-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <p className="text-gray-300">Ability to communicate complex concepts to non-technical stakeholders</p>
+                    <p className="text-gray-300">Economic lens – price elasticity, Pareto, demand curves baked into reports</p>
                   </div>
                   <div className="flex items-start">
                     <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <p className="text-gray-300">Experience leading cross-functional data teams</p>
+                    <p className="text-gray-300">Workflow architect – Trello → Motion playbooks that keep projects on rails</p>
                   </div>
                   <div className="flex items-start">
                     <div className="w-2 h-2 bg-yellow-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <p className="text-gray-300">Commitment to ethical data practices and responsible AI</p>
+                    <p className="text-gray-300">Continuous learner – quarterly up-skilling sprints (AI, dbt, LangGraph, etc.)</p>
                   </div>
                 </div>
               </div>
@@ -113,10 +105,9 @@ const About: React.FC = () => {
           <div className="bg-gradient-to-r from-red-900/20 to-orange-900/20 rounded-xl p-8 border border-red-700/30">
             <h3 className="text-2xl font-bold text-white mb-6 text-center">My Approach</h3>
             <p className="text-gray-300 leading-relaxed text-center max-w-4xl mx-auto text-lg">
-              I believe in a holistic approach to data projects, emphasizing not just technical excellence but also 
-              business context and stakeholder needs. My methodology combines rigorous analysis with 
-              creative problem-solving to deliver solutions that are both technically sound and 
-              commercially valuable.
+              I start by listening, then sprint-prototype dashboards in days—not months. Once the answers click, 
+              I harden the pipelines in BigQuery, wrap monitoring around them, and document the playbook. 
+              Analysts stay in flow, execs stay informed, and the system keeps learning with every question.
             </p>
           </div>
         </div>
@@ -124,7 +115,7 @@ const About: React.FC = () => {
         {/* Skills Section */}
         <div>
           <h3 className="text-2xl font-bold text-white mb-8 text-center">Skills & Expertise</h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {skills.map((skill, index) => (
               <div key={index} className="bg-gray-800 rounded-lg p-6 hover:bg-gray-750 transition-colors duration-300 border border-gray-700 hover:border-gray-600">
                 <div className="flex items-center mb-4">
