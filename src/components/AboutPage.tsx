@@ -78,7 +78,7 @@ const AboutPage: React.FC = () => {
       <div 
         className="h-[500px] relative bg-cover bg-center"
         style={{
-          backgroundImage: 'url("https://images.pexels.com/photos/2004161/pexels-photo-2004161.jpeg")'
+          backgroundImage: 'url("https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg")'
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-gray-950/70 to-gray-950"></div>
