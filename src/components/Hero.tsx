@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { ArrowDown, Database, BarChart, Terminal } from 'lucide-react';
+import { ArrowDown, Database, BarChart4, Code } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -40,17 +40,17 @@ const Hero: React.FC = () => {
             Questions surface, data flows, answers pulse across the org; my job is making that loop automatic and unforgettable
           </p>
           <div className="flex flex-wrap justify-center gap-4 mb-12">
-            <div className="bg-gray-800/70 backdrop-blur-sm p-4 rounded-lg flex items-center border border-gray-700/50 hover:border-red-400/50 transition-all duration-300">
-              <Database className="text-red-400 mr-3" />
-              <span className="text-white">Data Engineering</span>
-            </div>
             <div className="bg-gray-800/70 backdrop-blur-sm p-4 rounded-lg flex items-center border border-gray-700/50 hover:border-emerald-400/50 transition-all duration-300">
-              <BarChart className="text-emerald-400 mr-3" />
-              <span className="text-white">Data Visualization</span>
+              <BarChart4 className="text-emerald-400 mr-3" />
+              <span className="text-white">Data Analysis & Insight</span>
             </div>
             <div className="bg-gray-800/70 backdrop-blur-sm p-4 rounded-lg flex items-center border border-gray-700/50 hover:border-blue-400/50 transition-all duration-300">
-              <Terminal className="text-blue-400 mr-3" />
-              <span className="text-white">Machine Learning</span>
+              <Database className="text-blue-400 mr-3" />
+              <span className="text-white">Analytics Engineering</span>
+            </div>
+            <div className="bg-gray-800/70 backdrop-blur-sm p-4 rounded-lg flex items-center border border-gray-700/50 hover:border-red-400/50 transition-all duration-300">
+              <Code className="text-red-400 mr-3" />
+              <span className="text-white">Data Architecture & Workflow</span>
             </div>
           </div>
           <button 

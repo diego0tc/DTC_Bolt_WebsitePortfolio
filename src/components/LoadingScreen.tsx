@@ -7,9 +7,9 @@ const LoadingScreen: React.FC<{ onComplete: () => void }> = ({ onComplete }) => 
 
   useEffect(() => {
     const phases = [
-      { duration: 800, phase: 1 }, // Name appears
-      { duration: 1200, phase: 2 }, // Name with subtitle
-      { duration: 600, phase: 3 },  // Fade out preparation
+      { duration: 2500, phase: 1 }, // Name appears
+      { duration: 3000, phase: 2 }, // Name with subtitle
+      { duration: 1500, phase: 3 },  // Fade out preparation
     ];
 
     let timeoutId: NodeJS.Timeout;
@@ -23,12 +23,12 @@ const LoadingScreen: React.FC<{ onComplete: () => void }> = ({ onComplete }) => 
         setIsVisible(false);
         timeoutId = setTimeout(() => {
           onComplete();
-        }, 500); // Allow fade out animation to complete
+        }, 800); // Allow fade out animation to complete
       }
     };
 
     // Start the sequence
-    timeoutId = setTimeout(() => runPhases(0), 300);
+    timeoutId = setTimeout(() => runPhases(0), 500);
 
     return () => {
       if (timeoutId) clearTimeout(timeoutId);
@@ -113,22 +113,22 @@ const LoadingScreen: React.FC<{ onComplete: () => void }> = ({ onComplete }) => 
           }`}
         >
           <p className="text-xl md:text-2xl text-gray-300 font-light tracking-wide">
-            Analytics Engineer & Data Scientist
+            Data Analyst & Analytics Engineer
           </p>
           
           {/* Role indicators */}
           <div className="flex justify-center mt-4 space-x-6 text-sm text-gray-400">
             <span className="flex items-center">
-              <BarChart3 size={16} className="mr-1 text-red-400" />
-              Analytics
+              <BarChart3 size={16} className="mr-1 text-emerald-400" />
+              Analysis & Insight
             </span>
             <span className="flex items-center">
-              <Database size={16} className="mr-1 text-emerald-400" />
-              Engineering
+              <Database size={16} className="mr-1 text-blue-400" />
+              Analytics Engineering
             </span>
             <span className="flex items-center">
-              <TrendingUp size={16} className="mr-1 text-blue-400" />
-              Insights
+              <TrendingUp size={16} className="mr-1 text-red-400" />
+              Architecture & Workflow
             </span>
           </div>
           

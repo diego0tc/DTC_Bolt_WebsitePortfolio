@@ -8,7 +8,7 @@ const About: React.FC = () => {
   const skills = [
     { 
       category: 'Data Analysis & Insight',
-      items: ['SQL (BigQuery)', 'Tableau Cloud dashboards', 'Econometrics & Pareto analysis', 'Exploratory notebooks (pandas)', 'KPI variance & root-cause'],
+      items: ['SQL (BigQuery)', 'Tableau Cloud dashboards', 'Econometrics & Statistical analysis', 'Stat-testing (t-tests, ANOVA)', 'KPI variance & root-cause'],
       icon: <BarChart4 className="w-10 h-10 text-emerald-400" />
     },
     {
@@ -18,7 +18,7 @@ const About: React.FC = () => {
     },
     {
       category: 'Data Architecture & Workflow',
-      items: ['End-to-end DAG design (Make.com / Airflow)', 'Orchestration + scheduling (Composer)', 'Data catalog / naming standards', 'Infra-as-code (YAML, Terraform)', 'Monitoring & SLA alerts to Slack'],
+      items: ['End-to-end DAG design (Make.com / Airflow)', 'Orchestration + scheduling (Composer)', 'Data catalog / naming standards', 'Data Quality Control Dashboards', 'Row-level security & permissions'],
       icon: <Code className="w-10 h-10 text-red-400" />
     }
   ];
@@ -48,16 +48,11 @@ const About: React.FC = () => {
             <div className="flex-shrink-0">
               <div className="relative">
                 <div className="w-80 h-80 rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-red-500 to-orange-500 p-1">
-                  <div className="w-full h-full rounded-xl bg-gray-800 flex items-center justify-center">
-                    {/* Placeholder for professional photo */}
-                    <div className="text-center text-gray-400">
-                      <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-gray-700 flex items-center justify-center">
-                        <span className="text-3xl font-bold">D</span>
-                      </div>
-                      <p className="text-sm">Professional Photo</p>
-                      <p className="text-xs mt-1">(LinkedIn Profile Image)</p>
-                    </div>
-                  </div>
+                  <img 
+                    src="/images/diego-professional-photo.jpg" 
+                    alt="Diego Tejada Cardenas - Professional Photo"
+                    className="w-full h-full rounded-xl object-cover object-top"
+                  />
                 </div>
                 {/* Decorative elements */}
                 <div className="absolute -top-4 -right-4 w-8 h-8 bg-red-500 rounded-full opacity-70"></div>
