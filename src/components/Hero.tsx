@@ -24,9 +24,9 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-    <div id="home" className="min-h-screen bg-gray-900 relative flex items-center">
+    <div id="home" className="min-h-screen bg-gray-950 relative flex items-center">
       <div 
-        className="absolute inset-0 opacity-20 bg-cover bg-center"
+        className="absolute inset-0 opacity-10 bg-cover bg-center"
         style={{
           backgroundImage: "url('https://images.pexels.com/photos/2004161/pexels-photo-2004161.jpeg')"
         }}
@@ -40,22 +40,22 @@ const Hero: React.FC = () => {
             Transforming complex data into actionable insights and elegant solutions
           </p>
           <div className="flex flex-wrap justify-center gap-4 mb-12">
-            <div className="bg-gray-800 bg-opacity-70 p-4 rounded-lg flex items-center">
-              <Database className="text-blue-400 mr-3" />
+            <div className="bg-gray-800/70 backdrop-blur-sm p-4 rounded-lg flex items-center border border-gray-700/50 hover:border-red-400/50 transition-all duration-300">
+              <Database className="text-red-400 mr-3" />
               <span className="text-white">Data Engineering</span>
             </div>
-            <div className="bg-gray-800 bg-opacity-70 p-4 rounded-lg flex items-center">
-              <BarChart className="text-purple-400 mr-3" />
+            <div className="bg-gray-800/70 backdrop-blur-sm p-4 rounded-lg flex items-center border border-gray-700/50 hover:border-emerald-400/50 transition-all duration-300">
+              <BarChart className="text-emerald-400 mr-3" />
               <span className="text-white">Data Visualization</span>
             </div>
-            <div className="bg-gray-800 bg-opacity-70 p-4 rounded-lg flex items-center">
-              <Terminal className="text-green-400 mr-3" />
+            <div className="bg-gray-800/70 backdrop-blur-sm p-4 rounded-lg flex items-center border border-gray-700/50 hover:border-blue-400/50 transition-all duration-300">
+              <Terminal className="text-blue-400 mr-3" />
               <span className="text-white">Machine Learning</span>
             </div>
           </div>
           <button 
             onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
-            className="bg-indigo-600 text-white px-6 py-3 rounded-full hover:bg-indigo-700 transition-colors flex items-center mx-auto"
+            className="bg-red-500 text-white px-6 py-3 rounded-full hover:bg-red-600 transition-all duration-300 flex items-center mx-auto shadow-lg hover:shadow-red-500/25"
           >
             View About <ArrowDown className="ml-2" size={16} />
           </button>

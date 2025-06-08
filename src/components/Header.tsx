@@ -53,46 +53,46 @@ const Header: React.FC = () => {
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      scrollPosition > 50 ? 'bg-gray-900 shadow-lg' : 'bg-transparent'
+      scrollPosition > 50 ? 'bg-gray-950/95 backdrop-blur-md shadow-lg border-b border-gray-800' : 'bg-transparent'
     }`}>
       <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
           <button 
             onClick={() => handleNavigation('/')}
-            className="text-white font-bold text-2xl hover:text-gray-300 transition-colors"
+            className="text-white font-bold text-2xl hover:text-red-400 transition-colors"
           >
-            DataViz Portfolio
+            Diego Portfolio
           </button>
           
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
             <button 
               onClick={() => scrollToSection('home')} 
-              className="text-white hover:text-gray-300 transition-colors"
+              className="text-white hover:text-red-400 transition-colors"
             >
               Home
             </button>
             <button 
               onClick={() => handleNavigation('/about')} 
-              className="text-white hover:text-gray-300 transition-colors"
+              className="text-white hover:text-emerald-400 transition-colors"
             >
               About
             </button>
             <button 
               onClick={() => handleNavigation('/projects')} 
-              className="text-white hover:text-gray-300 transition-colors"
+              className="text-white hover:text-blue-400 transition-colors"
             >
               Projects
             </button>
             <button 
               onClick={() => handleNavigation('/resume')} 
-              className="text-white hover:text-gray-300 transition-colors"
+              className="text-white hover:text-orange-400 transition-colors"
             >
               Resume
             </button>
             <button 
               onClick={() => handleNavigation('/contact')} 
-              className="text-white hover:text-gray-300 transition-colors"
+              className="text-white hover:text-violet-400 transition-colors"
             >
               Contact
             </button>
@@ -106,35 +106,35 @@ const Header: React.FC = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden bg-gray-800 mt-4 rounded-lg p-4">
+          <div className="md:hidden bg-gray-900/95 backdrop-blur-md mt-4 rounded-lg p-4 border border-gray-800">
             <div className="flex flex-col space-y-4">
               <button 
                 onClick={() => scrollToSection('home')} 
-                className="text-white hover:text-gray-300 transition-colors text-left"
+                className="text-white hover:text-red-400 transition-colors text-left"
               >
                 Home
               </button>
               <button 
                 onClick={() => handleNavigation('/about')} 
-                className="text-white hover:text-gray-300 transition-colors text-left"
+                className="text-white hover:text-emerald-400 transition-colors text-left"
               >
                 About
               </button>
               <button 
                 onClick={() => handleNavigation('/projects')} 
-                className="text-white hover:text-gray-300 transition-colors text-left"
+                className="text-white hover:text-blue-400 transition-colors text-left"
               >
                 Projects
               </button>
               <button 
                 onClick={() => handleNavigation('/resume')} 
-                className="text-white hover:text-gray-300 transition-colors text-left"
+                className="text-white hover:text-orange-400 transition-colors text-left"
               >
                 Resume
               </button>
               <button 
                 onClick={() => handleNavigation('/contact')} 
-                className="text-white hover:text-gray-300 transition-colors text-left"
+                className="text-white hover:text-violet-400 transition-colors text-left"
               >
                 Contact
               </button>
@@ -145,7 +145,7 @@ const Header: React.FC = () => {
                     <a 
                       key={link.name}
                       href={link.url}
-                      className="text-white hover:text-gray-300 transition-colors"
+                      className="text-white hover:text-red-400 transition-colors"
                       target="_blank"
                       rel="noopener noreferrer"
                     >

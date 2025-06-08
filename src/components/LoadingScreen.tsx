@@ -36,23 +36,24 @@ const LoadingScreen: React.FC<{ onComplete: () => void }> = ({ onComplete }) => 
 
   return (
     <div 
-      className={`fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-gray-900 via-indigo-900 to-purple-900 transition-opacity duration-500 ${
+      className={`fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-gray-950 via-slate-900 to-gray-900 transition-opacity duration-500 ${
         isVisible ? 'opacity-100' : 'opacity-0'
       }`}
     >
       {/* Animated background particles */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-blue-400 rounded-full animate-pulse opacity-60"></div>
-        <div className="absolute top-3/4 right-1/4 w-1 h-1 bg-purple-400 rounded-full animate-ping opacity-40"></div>
-        <div className="absolute bottom-1/4 left-1/3 w-1.5 h-1.5 bg-indigo-400 rounded-full animate-pulse opacity-50"></div>
-        <div className="absolute top-1/2 right-1/3 w-1 h-1 bg-cyan-400 rounded-full animate-ping opacity-30"></div>
+        <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-red-400 rounded-full animate-pulse opacity-60"></div>
+        <div className="absolute top-3/4 right-1/4 w-1 h-1 bg-emerald-400 rounded-full animate-ping opacity-40"></div>
+        <div className="absolute bottom-1/4 left-1/3 w-1.5 h-1.5 bg-blue-400 rounded-full animate-pulse opacity-50"></div>
+        <div className="absolute top-1/2 right-1/3 w-1 h-1 bg-orange-400 rounded-full animate-ping opacity-30"></div>
+        <div className="absolute top-1/3 left-1/2 w-1 h-1 bg-violet-400 rounded-full animate-pulse opacity-40"></div>
       </div>
 
       <div className="text-center relative">
         {/* Main name animation */}
         <div className="relative">
           <h1 
-            className={`text-6xl md:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 transition-all duration-700 transform ${
+            className={`text-6xl md:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-orange-400 to-yellow-400 transition-all duration-700 transform ${
               currentPhase >= 1 
                 ? 'opacity-100 scale-100 translate-y-0' 
                 : 'opacity-0 scale-95 translate-y-4'
@@ -63,7 +64,7 @@ const LoadingScreen: React.FC<{ onComplete: () => void }> = ({ onComplete }) => 
           
           {/* Animated underline */}
           <div 
-            className={`h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto transition-all duration-700 ${
+            className={`h-1 bg-gradient-to-r from-red-400 to-orange-400 mx-auto transition-all duration-700 ${
               currentPhase >= 1 
                 ? 'w-full opacity-100' 
                 : 'w-0 opacity-0'
@@ -85,22 +86,22 @@ const LoadingScreen: React.FC<{ onComplete: () => void }> = ({ onComplete }) => 
           
           {/* Loading dots */}
           <div className="flex justify-center mt-4 space-x-1">
-            <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce"></div>
-            <div className="w-2 h-2 bg-purple-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-            <div className="w-2 h-2 bg-cyan-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+            <div className="w-2 h-2 bg-red-400 rounded-full animate-bounce"></div>
+            <div className="w-2 h-2 bg-orange-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+            <div className="w-2 h-2 bg-yellow-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
           </div>
         </div>
 
         {/* Decorative elements */}
         <div 
-          className={`absolute -top-8 -left-8 w-16 h-16 border-2 border-blue-400/30 rounded-full transition-all duration-1000 ${
+          className={`absolute -top-8 -left-8 w-16 h-16 border-2 border-red-400/30 rounded-full transition-all duration-1000 ${
             currentPhase >= 1 
               ? 'opacity-100 rotate-180' 
               : 'opacity-0 rotate-0'
           }`}
         ></div>
         <div 
-          className={`absolute -bottom-8 -right-8 w-12 h-12 border-2 border-purple-400/30 rounded-full transition-all duration-1000 ${
+          className={`absolute -bottom-8 -right-8 w-12 h-12 border-2 border-orange-400/30 rounded-full transition-all duration-1000 ${
             currentPhase >= 2 
               ? 'opacity-100 rotate-180' 
               : 'opacity-0 rotate-0'
@@ -110,9 +111,9 @@ const LoadingScreen: React.FC<{ onComplete: () => void }> = ({ onComplete }) => 
 
       {/* Progress indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-        <div className="w-32 h-1 bg-gray-700 rounded-full overflow-hidden">
+        <div className="w-32 h-1 bg-gray-800 rounded-full overflow-hidden">
           <div 
-            className={`h-full bg-gradient-to-r from-blue-400 to-purple-400 transition-all duration-300 ${
+            className={`h-full bg-gradient-to-r from-red-400 to-orange-400 transition-all duration-300 ${
               currentPhase >= 3 ? 'w-full' : currentPhase >= 2 ? 'w-2/3' : currentPhase >= 1 ? 'w-1/3' : 'w-0'
             }`}
           ></div>
