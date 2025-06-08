@@ -51,7 +51,7 @@ const DogShelterProject: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-900 pt-20">
+    <div className="min-h-screen bg-gray-950 pt-20">
       {/* Hero Section */}
       <div 
         className="h-[400px] relative bg-cover bg-center"
@@ -59,12 +59,12 @@ const DogShelterProject: React.FC = () => {
           backgroundImage: 'url("https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg")'
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-gray-900/70 to-gray-900"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-950/70 to-gray-950"></div>
         <div className="container mx-auto px-4 h-full flex items-center relative">
           <div>
             <button
               onClick={() => navigate('/')}
-              className="flex items-center text-gray-300 hover:text-white mb-6 transition-colors"
+              className="flex items-center text-gray-300 hover:text-red-400 mb-6 transition-colors"
             >
               <ArrowLeft size={20} className="mr-2" />
               Back to Projects
@@ -83,24 +83,24 @@ const DogShelterProject: React.FC = () => {
       {/* Main Content */}
       <div className="container mx-auto px-4 py-12">
         {/* Project Overview */}
-        <div className="bg-gray-800 rounded-xl p-8 mb-12">
+        <div className="bg-gray-900 rounded-xl p-8 mb-12 border border-gray-800">
           <div className="grid md:grid-cols-3 gap-8">
             <div>
-              <div className="flex items-center text-indigo-400 mb-2">
+              <div className="flex items-center text-red-400 mb-2">
                 <FileText size={24} className="mr-2" />
                 <h3 className="text-lg font-semibold">Project Duration</h3>
               </div>
               <p className="text-gray-300">6 months (Jan - June 2023)</p>
             </div>
             <div>
-              <div className="flex items-center text-green-400 mb-2">
+              <div className="flex items-center text-emerald-400 mb-2">
                 <Database size={24} className="mr-2" />
                 <h3 className="text-lg font-semibold">Data Volume</h3>
               </div>
               <p className="text-gray-300">25,000+ records analyzed</p>
             </div>
             <div>
-              <div className="flex items-center text-purple-400 mb-2">
+              <div className="flex items-center text-blue-400 mb-2">
                 <BarChart size={24} className="mr-2" />
                 <h3 className="text-lg font-semibold">Key Impact</h3>
               </div>
@@ -128,7 +128,7 @@ const DogShelterProject: React.FC = () => {
 
           <h2 className="text-3xl font-bold text-white mb-6">Key Findings</h2>
           <div className="grid md:grid-cols-2 gap-8 mb-12">
-            <div className="bg-gray-800/50 p-6 rounded-lg">
+            <div className="bg-gray-900/50 p-6 rounded-lg border border-gray-800">
               <h3 className="text-xl font-semibold text-white mb-4">Adoption Patterns</h3>
               <ul className="list-disc list-inside text-gray-300 space-y-2">
                 <li>Peak adoption periods during spring and early fall</li>
@@ -136,7 +136,7 @@ const DogShelterProject: React.FC = () => {
                 <li>Breed popularity fluctuations based on seasonal factors</li>
               </ul>
             </div>
-            <div className="bg-gray-800/50 p-6 rounded-lg">
+            <div className="bg-gray-900/50 p-6 rounded-lg border border-gray-800">
               <h3 className="text-xl font-semibold text-white mb-4">Resource Optimization</h3>
               <ul className="list-disc list-inside text-gray-300 space-y-2">
                 <li>Identified peak staffing needs based on visitor patterns</li>
@@ -152,9 +152,9 @@ const DogShelterProject: React.FC = () => {
           <h2 className="text-3xl font-bold text-white mb-6">Technical Deep Dive</h2>
           <div className="space-y-4">
             {technicalDetails.map(section => (
-              <div key={section.id} className="bg-gray-800 rounded-lg overflow-hidden">
+              <div key={section.id} className="bg-gray-900 rounded-lg overflow-hidden border border-gray-800">
                 <button
-                  className="w-full px-6 py-4 flex items-center justify-between text-left"
+                  className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-gray-800 transition-colors"
                   onClick={() => toggleSection(section.id)}
                 >
                   <h3 className="text-xl font-semibold text-white">{section.title}</h3>
@@ -165,8 +165,8 @@ const DogShelterProject: React.FC = () => {
                   )}
                 </button>
                 {expandedSections.includes(section.id) && (
-                  <div className="px-6 pb-6">
-                    <p className="text-gray-300 whitespace-pre-line">{section.content}</p>
+                  <div className="px-6 pb-6 border-t border-gray-800">
+                    <p className="text-gray-300 whitespace-pre-line pt-4">{section.content}</p>
                   </div>
                 )}
               </div>
@@ -175,22 +175,22 @@ const DogShelterProject: React.FC = () => {
         </div>
 
         {/* Results & Impact */}
-        <div className="bg-indigo-900/30 rounded-xl p-8 mb-12">
+        <div className="bg-gradient-to-r from-red-900/20 to-orange-900/20 rounded-xl p-8 mb-12 border border-red-700/30">
           <h2 className="text-3xl font-bold text-white mb-6">Results & Impact</h2>
           <div className="grid md:grid-cols-2 gap-8">
             <div>
               <h3 className="text-xl font-semibold text-white mb-4">Quantitative Impact</h3>
               <ul className="text-gray-300 space-y-3">
                 <li className="flex items-center">
-                  <span className="w-2 h-2 bg-green-400 rounded-full mr-2"></span>
+                  <span className="w-2 h-2 bg-emerald-400 rounded-full mr-2"></span>
                   32% increase in successful adoptions
                 </li>
                 <li className="flex items-center">
-                  <span className="w-2 h-2 bg-green-400 rounded-full mr-2"></span>
+                  <span className="w-2 h-2 bg-emerald-400 rounded-full mr-2"></span>
                   25% reduction in average stay duration
                 </li>
                 <li className="flex items-center">
-                  <span className="w-2 h-2 bg-green-400 rounded-full mr-2"></span>
+                  <span className="w-2 h-2 bg-emerald-400 rounded-full mr-2"></span>
                   20% decrease in operational costs
                 </li>
               </ul>
@@ -199,15 +199,15 @@ const DogShelterProject: React.FC = () => {
               <h3 className="text-xl font-semibold text-white mb-4">Qualitative Impact</h3>
               <ul className="text-gray-300 space-y-3">
                 <li className="flex items-center">
-                  <span className="w-2 h-2 bg-purple-400 rounded-full mr-2"></span>
+                  <span className="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>
                   Improved staff resource allocation
                 </li>
                 <li className="flex items-center">
-                  <span className="w-2 h-2 bg-purple-400 rounded-full mr-2"></span>
+                  <span className="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>
                   Better matching of dogs with potential adopters
                 </li>
                 <li className="flex items-center">
-                  <span className="w-2 h-2 bg-purple-400 rounded-full mr-2"></span>
+                  <span className="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>
                   Enhanced visitor experience through data-driven insights
                 </li>
               </ul>
@@ -216,24 +216,24 @@ const DogShelterProject: React.FC = () => {
         </div>
 
         {/* Sources & References */}
-        <div className="bg-gray-800 rounded-xl p-8">
+        <div className="bg-gray-900 rounded-xl p-8 border border-gray-800">
           <h2 className="text-2xl font-bold text-white mb-6">Sources & References</h2>
           <ul className="text-gray-300 space-y-4">
             <li className="flex items-start">
-              <ExternalLink size={20} className="mr-2 mt-1 text-indigo-400" />
-              <a href="#" className="hover:text-indigo-400 transition-colors">
+              <ExternalLink size={20} className="mr-2 mt-1 text-red-400" />
+              <a href="#" className="hover:text-red-400 transition-colors">
                 Toronto Animal Services Annual Report 2023
               </a>
             </li>
             <li className="flex items-start">
-              <ExternalLink size={20} className="mr-2 mt-1 text-indigo-400" />
-              <a href="#" className="hover:text-indigo-400 transition-colors">
+              <ExternalLink size={20} className="mr-2 mt-1 text-red-400" />
+              <a href="#" className="hover:text-red-400 transition-colors">
                 Canadian Animal Shelter Statistics Database
               </a>
             </li>
             <li className="flex items-start">
-              <ExternalLink size={20} className="mr-2 mt-1 text-indigo-400" />
-              <a href="#" className="hover:text-indigo-400 transition-colors">
+              <ExternalLink size={20} className="mr-2 mt-1 text-red-400" />
+              <a href="#" className="hover:text-red-400 transition-colors">
                 Research Paper: "Data-Driven Approaches in Animal Shelter Management"
               </a>
             </li>
