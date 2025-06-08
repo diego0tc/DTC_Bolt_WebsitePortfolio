@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { BarChart3, Database, TrendingUp } from 'lucide-react';
 
 const LoadingScreen: React.FC<{ onComplete: () => void }> = ({ onComplete }) => {
   const [currentPhase, setCurrentPhase] = useState(0);
@@ -40,6 +41,14 @@ const LoadingScreen: React.FC<{ onComplete: () => void }> = ({ onComplete }) => 
         isVisible ? 'opacity-100' : 'opacity-0'
       }`}
     >
+      {/* Background image for data analytics theme */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center opacity-10"
+        style={{
+          backgroundImage: 'url("https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg")'
+        }}
+      ></div>
+
       {/* Animated background particles */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-red-400 rounded-full animate-pulse opacity-60"></div>
@@ -49,7 +58,30 @@ const LoadingScreen: React.FC<{ onComplete: () => void }> = ({ onComplete }) => 
         <div className="absolute top-1/3 left-1/2 w-1 h-1 bg-violet-400 rounded-full animate-pulse opacity-40"></div>
       </div>
 
-      <div className="text-center relative">
+      <div className="text-center relative z-10">
+        {/* Professional icon representation */}
+        <div 
+          className={`mb-8 transition-all duration-700 transform ${
+            currentPhase >= 1 
+              ? 'opacity-100 scale-100 translate-y-0' 
+              : 'opacity-0 scale-95 translate-y-4'
+          }`}
+        >
+          <div className="relative">
+            <div className="w-24 h-24 mx-auto bg-gradient-to-br from-red-500 to-orange-500 rounded-2xl flex items-center justify-center shadow-2xl">
+              <div className="flex space-x-1">
+                <BarChart3 className="text-white" size={20} />
+                <Database className="text-white" size={20} />
+                <TrendingUp className="text-white" size={20} />
+              </div>
+            </div>
+            {/* Floating data points around the icon */}
+            <div className="absolute -top-2 -right-2 w-4 h-4 bg-emerald-400 rounded-full animate-bounce opacity-80"></div>
+            <div className="absolute -bottom-2 -left-2 w-3 h-3 bg-blue-400 rounded-full animate-pulse opacity-70"></div>
+            <div className="absolute top-1/2 -left-4 w-2 h-2 bg-yellow-400 rounded-full animate-ping opacity-60"></div>
+          </div>
+        </div>
+
         {/* Main name animation */}
         <div className="relative">
           <h1 
@@ -81,11 +113,27 @@ const LoadingScreen: React.FC<{ onComplete: () => void }> = ({ onComplete }) => 
           }`}
         >
           <p className="text-xl md:text-2xl text-gray-300 font-light tracking-wide">
-            Data Science Portfolio
+            Analytics Engineer & Data Scientist
           </p>
           
+          {/* Role indicators */}
+          <div className="flex justify-center mt-4 space-x-6 text-sm text-gray-400">
+            <span className="flex items-center">
+              <BarChart3 size={16} className="mr-1 text-red-400" />
+              Analytics
+            </span>
+            <span className="flex items-center">
+              <Database size={16} className="mr-1 text-emerald-400" />
+              Engineering
+            </span>
+            <span className="flex items-center">
+              <TrendingUp size={16} className="mr-1 text-blue-400" />
+              Insights
+            </span>
+          </div>
+          
           {/* Loading dots */}
-          <div className="flex justify-center mt-4 space-x-1">
+          <div className="flex justify-center mt-6 space-x-1">
             <div className="w-2 h-2 bg-red-400 rounded-full animate-bounce"></div>
             <div className="w-2 h-2 bg-orange-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
             <div className="w-2 h-2 bg-yellow-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>

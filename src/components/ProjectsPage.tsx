@@ -55,7 +55,7 @@ const ProjectsPage: React.FC = () => {
       <div 
         className="h-[400px] relative bg-cover bg-center"
         style={{
-          backgroundImage: 'url("https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg")'
+          backgroundImage: 'url("https://images.pexels.com/photos/669610/pexels-photo-669610.jpeg")'
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-gray-950/70 to-gray-950"></div>

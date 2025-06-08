@@ -7,25 +7,40 @@ const Resume: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-950 pt-20">
-      <div className="container mx-auto px-4 py-8">
-        <div className="flex items-center justify-between mb-8">
-          <button
-            onClick={() => navigate('/')}
-            className="flex items-center text-gray-400 hover:text-red-400 transition-colors"
-          >
-            <ArrowLeft size={20} className="mr-2" />
-            Back to Portfolio
-          </button>
-          <a
-            href="/resume.pdf"
-            download
-            className="flex items-center bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition-colors hover:shadow-lg hover:shadow-red-500/25"
-          >
-            <Download size={20} className="mr-2" />
-            Download PDF
-          </a>
+      {/* Hero Section with Background */}
+      <div 
+        className="h-[300px] relative bg-cover bg-center"
+        style={{
+          backgroundImage: 'url("https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg")'
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-950/70 to-gray-950"></div>
+        <div className="container mx-auto px-4 h-full flex items-center relative">
+          <div>
+            <button
+              onClick={() => navigate('/')}
+              className="flex items-center text-gray-400 hover:text-red-400 transition-colors mb-6"
+            >
+              <ArrowLeft size={20} className="mr-2" />
+              Back to Portfolio
+            </button>
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Resume</h1>
+            <p className="text-xl text-gray-300">Professional experience and qualifications</p>
+          </div>
+          <div className="ml-auto">
+            <a
+              href="/resume.pdf"
+              download
+              className="flex items-center bg-red-500 text-white px-6 py-3 rounded-lg hover:bg-red-600 transition-colors hover:shadow-lg hover:shadow-red-500/25"
+            >
+              <Download size={20} className="mr-2" />
+              Download PDF
+            </a>
+          </div>
         </div>
+      </div>
 
+      <div className="container mx-auto px-4 py-12">
         <div className="bg-gray-900 rounded-lg shadow-xl p-8 max-w-4xl mx-auto border border-gray-800">
           <h1 className="text-3xl font-bold text-white mb-6">Diego Tejada Cardenas</h1>
           <p className="text-gray-400 mb-6">Senior Data Scientist & Analytics Engineer</p>
