@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ArrowDown, Database, BarChart, Terminal } from 'lucide-react';
+import { ArrowDown, Database, BarChart4, Code } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -56,7 +56,7 @@ const Hero: React.FC = () => {
       ></div>
       <div className="container mx-auto px-4 z-10">
         <div className="max-w-3xl mx-auto text-center">
-          {/* Phase 1: Main Title - NOW follows third animation timing and movement */}
+          {/* Phase 1: Main Title - Using real personal content with bolt-ui animations */}
           <h1 
             ref={titleRef} 
             className={`text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 transition-all duration-1000 ease-out transform ${
@@ -65,10 +65,10 @@ const Hero: React.FC = () => {
                 : 'opacity-0 translate-y-6 scale-95'
             }`}
           >
-            Data Science & Analytics Portfolio
+            Turning Questions into Business Living Systems
           </h1>
           
-          {/* Phase 2: Subtitle - EXACT same movement and timing as third animation */}
+          {/* Phase 2: Subtitle - Real personal tagline with bolt-ui animations */}
           <p 
             className={`text-xl md:text-2xl text-gray-300 mb-8 transition-all duration-1000 ease-out transform ${
               animationPhase >= 2 
@@ -76,32 +76,21 @@ const Hero: React.FC = () => {
                 : 'opacity-0 translate-y-6 scale-95'
             }`}
           >
-            Transforming complex data into actionable insights and elegant solutions
+            Questions surface, data flows, answers pulse across the org; my job is making that loop automatic and unforgettable
           </p>
           
           {/* Phase 3: Skills Pills - PERFECT timing and movement kept exactly the same */}
           <div className="flex flex-wrap justify-center gap-4 mb-12">
-            <div 
-              className={`bg-gray-800/70 backdrop-blur-sm p-4 rounded-lg flex items-center border border-gray-700/50 hover:border-red-400/50 transition-all duration-1000 ease-out transform ${
-                animationPhase >= 3 
-                  ? 'opacity-100 translate-y-0 scale-100' 
-                  : 'opacity-0 translate-y-6 scale-95'
-              }`}
-              style={{ transitionDelay: animationPhase >= 3 ? '200ms' : '0ms' }}
-            >
-              <Database className="text-red-400 mr-3" />
-              <span className="text-white">Data Engineering</span>
-            </div>
             <div 
               className={`bg-gray-800/70 backdrop-blur-sm p-4 rounded-lg flex items-center border border-gray-700/50 hover:border-emerald-400/50 transition-all duration-1000 ease-out transform ${
                 animationPhase >= 3 
                   ? 'opacity-100 translate-y-0 scale-100' 
                   : 'opacity-0 translate-y-6 scale-95'
               }`}
-              style={{ transitionDelay: animationPhase >= 3 ? '400ms' : '0ms' }}
+              style={{ transitionDelay: animationPhase >= 3 ? '200ms' : '0ms' }}
             >
-              <BarChart className="text-emerald-400 mr-3" />
-              <span className="text-white">Data Visualization</span>
+              <BarChart4 className="text-emerald-400 mr-3" />
+              <span className="text-white">Data Analysis & Insight</span>
             </div>
             <div 
               className={`bg-gray-800/70 backdrop-blur-sm p-4 rounded-lg flex items-center border border-gray-700/50 hover:border-blue-400/50 transition-all duration-1000 ease-out transform ${
@@ -109,10 +98,21 @@ const Hero: React.FC = () => {
                   ? 'opacity-100 translate-y-0 scale-100' 
                   : 'opacity-0 translate-y-6 scale-95'
               }`}
+              style={{ transitionDelay: animationPhase >= 3 ? '400ms' : '0ms' }}
+            >
+              <Database className="text-blue-400 mr-3" />
+              <span className="text-white">Analytics Engineering</span>
+            </div>
+            <div 
+              className={`bg-gray-800/70 backdrop-blur-sm p-4 rounded-lg flex items-center border border-gray-700/50 hover:border-red-400/50 transition-all duration-1000 ease-out transform ${
+                animationPhase >= 3 
+                  ? 'opacity-100 translate-y-0 scale-100' 
+                  : 'opacity-0 translate-y-6 scale-95'
+              }`}
               style={{ transitionDelay: animationPhase >= 3 ? '600ms' : '0ms' }}
             >
-              <Terminal className="text-blue-400 mr-3" />
-              <span className="text-white">Machine Learning</span>
+              <Code className="text-red-400 mr-3" />
+              <span className="text-white">Data Architecture & Workflow</span>
             </div>
           </div>
           

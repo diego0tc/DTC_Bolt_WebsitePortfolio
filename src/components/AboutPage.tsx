@@ -105,15 +105,11 @@ const AboutPage: React.FC = () => {
             <div className="flex-shrink-0">
               <div className="relative">
                 <div className="w-96 h-96 rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-red-500 to-orange-500 p-1">
-                  <div className="w-full h-full rounded-xl bg-gray-800 flex items-center justify-center">
-                    <div className="text-center text-gray-400">
-                      <div className="w-32 h-32 mx-auto mb-4 rounded-full bg-gray-700 flex items-center justify-center">
-                        <span className="text-4xl font-bold">D</span>
-                      </div>
-                      <p className="text-lg font-medium">Professional Photo</p>
-                      <p className="text-sm mt-1">(LinkedIn Profile Image)</p>
-                    </div>
-                  </div>
+                  <img 
+                    src="/images/diego-professional-photo.jpg" 
+                    alt="Diego Tejada Cardenas - Professional Photo"
+                    className="w-full h-full rounded-xl object-cover object-top"
+                  />
                 </div>
                 <div className="absolute -top-6 -right-6 w-12 h-12 bg-red-500 rounded-full opacity-70"></div>
                 <div className="absolute -bottom-6 -left-6 w-8 h-8 bg-orange-500 rounded-full opacity-70"></div>
