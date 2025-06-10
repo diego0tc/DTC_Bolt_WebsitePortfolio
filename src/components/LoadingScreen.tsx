@@ -4,11 +4,11 @@ import { BarChart3, Database, TrendingUp } from 'lucide-react';
 const LoadingScreen: React.FC<{ onComplete: () => void }> = ({ onComplete }) => {
   const [currentPhase, setCurrentPhase] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
-  const [currentBgIndex, setCurrentBgIndex] = useState(0);
+  const [selectedBackground, setSelectedBackground] = useState('');
 
   // Array of beautiful data/analytics themed background images
   const backgroundImages = [
-    'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg', // Original data visualization
+    'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg', // Data visualization charts
     'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg', // Business analytics charts
     'https://images.pexels.com/photos/669610/pexels-photo-669610.jpeg', // Data dashboard screens
     'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg', // Team analyzing data
@@ -19,10 +19,9 @@ const LoadingScreen: React.FC<{ onComplete: () => void }> = ({ onComplete }) => 
   ];
 
   useEffect(() => {
-    // Cycle through background images every 800ms
-    const bgInterval = setInterval(() => {
-      setCurrentBgIndex((prevIndex) => (prevIndex + 1) % backgroundImages.length);
-    }, 800);
+    // Select one random background image for this loading session
+    const randomIndex = Math.floor(Math.random() * backgroundImages.length);
+    setSelectedBackground(backgroundImages[randomIndex]);
 
     const phases = [
       { duration: 800, phase: 1 }, // Name appears
@@ -50,9 +49,8 @@ const LoadingScreen: React.FC<{ onComplete: () => void }> = ({ onComplete }) => 
 
     return () => {
       if (timeoutId) clearTimeout(timeoutId);
-      clearInterval(bgInterval);
     };
-  }, [onComplete, backgroundImages.length]);
+  }, [onComplete, backgroundImages]);
 
   return (
     <div 
@@ -60,21 +58,14 @@ const LoadingScreen: React.FC<{ onComplete: () => void }> = ({ onComplete }) => 
         isVisible ? 'opacity-100' : 'opacity-0'
       }`}
     >
-      {/* Dynamic cycling background images */}
-      <div className="absolute inset-0 overflow-hidden">
-        {backgroundImages.map((image, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${
-              index === currentBgIndex ? 'opacity-20' : 'opacity-0'
-            }`}
-            style={{
-              backgroundImage: `url("${image}")`,
-              filter: 'blur(1px) brightness(0.7)'
-            }}
-          />
-        ))}
-      </div>
+      {/* Single selected background image for this session */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center opacity-20"
+        style={{
+          backgroundImage: `url("${selectedBackground}")`,
+          filter: 'blur(1px) brightness(0.7)'
+        }}
+      />
 
       {/* Enhanced animated background particles */}
       <div className="absolute inset-0 overflow-hidden">
