@@ -19,9 +19,23 @@ const LoadingScreen: React.FC<{ onComplete: () => void }> = ({ onComplete }) => 
   ];
 
   useEffect(() => {
-    // Select one random background image for this loading session
-    const randomIndex = Math.floor(Math.random() * backgroundImages.length);
-    setSelectedBackground(backgroundImages[randomIndex]);
+    // Get the next background image in sequence
+    const getNextBackgroundImage = () => {
+      // Get current index from localStorage, default to 0
+      const currentIndex = parseInt(localStorage.getItem('backgroundIndex') || '0', 10);
+      
+      // Calculate next index (cycle back to 0 after reaching the end)
+      const nextIndex = (currentIndex + 1) % backgroundImages.length;
+      
+      // Store the next index for the next visitor
+      localStorage.setItem('backgroundIndex', nextIndex.toString());
+      
+      // Return the current image for this visitor
+      return backgroundImages[currentIndex];
+    };
+
+    // Set the background for this loading session
+    setSelectedBackground(getNextBackgroundImage());
 
     const phases = [
       { duration: 800, phase: 1 }, // Name appears
