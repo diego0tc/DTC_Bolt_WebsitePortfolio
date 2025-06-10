@@ -29,20 +29,20 @@ const Hero: React.FC = () => {
     // Phase 1: Title appears (immediately)
     setAnimationPhase(1);
     
-    // Phase 2: Subtitle appears (after 1500ms - same timing as third animation)
+    // Phase 2: Subtitle appears (after 2500ms - BIG gap for title focus)
     setTimeout(() => {
       setAnimationPhase(2);
-    }, 1500);
+    }, 2500);
     
-    // Phase 3: Skills pills appear (after 3500ms - bigger gap for text focus)
+    // Phase 3: Skills pills appear (after 5500ms - BIG gap for subtitle focus)
     setTimeout(() => {
       setAnimationPhase(3);
-    }, 3500);
+    }, 5500);
     
-    // Phase 4: Button appears (after 4900ms - same gap as before)
+    // Phase 4: Button appears (after 8500ms - BIG gap for skills focus)
     setTimeout(() => {
       setAnimationPhase(4);
-    }, 4900);
+    }, 8500);
   };
 
   return (
@@ -56,19 +56,19 @@ const Hero: React.FC = () => {
       ></div>
       <div className="container mx-auto px-4 z-10">
         <div className="max-w-3xl mx-auto text-center">
-          {/* Phase 1: Main Title - same timing, good movement */}
+          {/* Phase 1: Main Title - NOW follows third animation timing and movement */}
           <h1 
             ref={titleRef} 
-            className={`text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 transition-all duration-1500 ease-out transform ${
+            className={`text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 transition-all duration-1000 ease-out transform ${
               animationPhase >= 1 
                 ? 'opacity-100 translate-y-0 scale-100' 
-                : 'opacity-0 translate-y-12 scale-95'
+                : 'opacity-0 translate-y-6 scale-95'
             }`}
           >
             Data Science & Analytics Portfolio
           </h1>
           
-          {/* Phase 2: Subtitle - SAME movement and timing as third animation */}
+          {/* Phase 2: Subtitle - EXACT same movement and timing as third animation */}
           <p 
             className={`text-xl md:text-2xl text-gray-300 mb-8 transition-all duration-1000 ease-out transform ${
               animationPhase >= 2 
@@ -116,7 +116,7 @@ const Hero: React.FC = () => {
             </div>
           </div>
           
-          {/* Phase 4: Call to Action Button - same perfect timing */}
+          {/* Phase 4: Call to Action Button - EXACT same timing and movement as third animation */}
           <button 
             onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
             className={`bg-red-500 text-white px-6 py-3 rounded-full hover:bg-red-600 transition-all duration-1000 ease-out flex items-center mx-auto shadow-lg hover:shadow-red-500/25 transform ${
