@@ -82,21 +82,26 @@ const LoadingScreen: React.FC<{ onComplete: () => void }> = ({ onComplete }) => 
           </div>
         </div>
 
-        {/* Main name animation */}
-        <div className="relative">
+        {/* Main name animation - FIXED: Added proper spacing and line height */}
+        <div className="relative px-4">
           <h1 
-            className={`text-6xl md:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-orange-400 to-yellow-400 transition-all duration-700 transform ${
+            className={`text-6xl md:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-orange-400 to-yellow-400 transition-all duration-700 transform leading-none py-4 ${
               currentPhase >= 1 
                 ? 'opacity-100 scale-100 translate-y-0' 
                 : 'opacity-0 scale-95 translate-y-4'
             }`}
+            style={{ 
+              lineHeight: '1.1',
+              paddingTop: '0.25rem',
+              paddingBottom: '0.25rem'
+            }}
           >
             Diego
           </h1>
           
-          {/* Animated underline */}
+          {/* Animated underline - FIXED: Positioned with proper spacing */}
           <div 
-            className={`h-1 bg-gradient-to-r from-red-400 to-orange-400 mx-auto transition-all duration-700 ${
+            className={`h-1 bg-gradient-to-r from-red-400 to-orange-400 mx-auto transition-all duration-700 mt-2 ${
               currentPhase >= 1 
                 ? 'w-full opacity-100' 
                 : 'w-0 opacity-0'
@@ -106,18 +111,18 @@ const LoadingScreen: React.FC<{ onComplete: () => void }> = ({ onComplete }) => 
 
         {/* Subtitle animation */}
         <div 
-          className={`mt-6 transition-all duration-700 transform ${
+          className={`mt-8 transition-all duration-700 transform ${
             currentPhase >= 2 
               ? 'opacity-100 translate-y-0' 
               : 'opacity-0 translate-y-4'
           }`}
         >
-          <p className="text-xl md:text-2xl text-gray-300 font-light tracking-wide">
+          <p className="text-xl md:text-2xl text-gray-300 font-light tracking-wide leading-relaxed">
             Analytics Engineer & Data Scientist
           </p>
           
           {/* Role indicators */}
-          <div className="flex justify-center mt-4 space-x-6 text-sm text-gray-400">
+          <div className="flex justify-center mt-6 space-x-6 text-sm text-gray-400">
             <span className="flex items-center">
               <BarChart3 size={16} className="mr-1 text-red-400" />
               Analytics
@@ -133,7 +138,7 @@ const LoadingScreen: React.FC<{ onComplete: () => void }> = ({ onComplete }) => 
           </div>
           
           {/* Loading dots */}
-          <div className="flex justify-center mt-6 space-x-1">
+          <div className="flex justify-center mt-8 space-x-1">
             <div className="w-2 h-2 bg-red-400 rounded-full animate-bounce"></div>
             <div className="w-2 h-2 bg-orange-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
             <div className="w-2 h-2 bg-yellow-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
