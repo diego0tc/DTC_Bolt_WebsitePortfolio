@@ -14,6 +14,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   const handleViewDetails = () => {
     if (project.id === 'dog-shelter-analytics') {
       navigate('/projects/dog-shelter-analytics');
+    } else if (project.id === 'toronto-parking-lesson') {
+      navigate('/projects/toronto-parking-lesson');
     }
   };
 

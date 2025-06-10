@@ -13,8 +13,8 @@ export const projects: Project[] = [
     link: 'https://public.tableau.com/views/TheNewTorontonianaparkinglesson/Dashboard1'
   },
   {
-    id: 'shelter-analytics',
-    title: 'Animal Shelter Analytics',
+    id: 'dog-shelter-analytics',
+    title: 'Dog Shelter Analytics',
     description: 'Data-driven insights into animal adoption patterns and shelter resource optimization. Analysis focuses on improving adoption rates and understanding seasonal trends in animal care.',
     type: 'tableau',
     backgroundImage: 'https://images.unsplash.com/photo-1415369629372-26f2fe60c467?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
