@@ -47,7 +47,7 @@ const Hero: React.FC = () => {
 
   return (
     <div id="home" className="min-h-screen bg-gray-950 relative flex items-center">
-      {/* Background image - ALWAYS visible from start, part of the initial render */}
+      {/* Background image - ALWAYS visible from the very start, no animation */}
       <div 
         className="absolute inset-0 opacity-15 bg-cover bg-center"
         style={{
