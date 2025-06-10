@@ -7,12 +7,12 @@ const LoadingScreen: React.FC<{ onComplete: () => void }> = ({ onComplete }) => 
 
   useEffect(() => {
     const phases = [
-      { duration: 2500, phase: 1 }, // Name appears
-      { duration: 3000, phase: 2 }, // Name with subtitle
-      { duration: 1500, phase: 3 },  // Fade out preparation
+      { duration: 1500, phase: 1 }, // Name appears (faster)
+      { duration: 2500, phase: 2 }, // Name with subtitle (slightly faster)
+      { duration: 3000, phase: 3 },  // Reading time (more time to read!)
     ];
 
-    let timeoutId: NodeJS.Timeout;
+    let timeoutId: number;
     
     const runPhases = (index: number) => {
       if (index < phases.length) {
