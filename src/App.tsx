@@ -9,6 +9,7 @@ import Footer from './components/Footer';
 import Resume from './components/Resume';
 import ProjectDetail from './components/ProjectDetail';
 import ProjectPage from './components/ProjectPage';
+import ParkingProjectPage from './components/ParkingProjectPage';
 import AboutPage from './components/AboutPage';
 import ProjectsPage from './components/ProjectsPage';
 import ContactPage from './components/ContactPage';
@@ -51,6 +52,7 @@ function App() {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/resume" element={<Resume />} />
           <Route path="/projects/dog-shelter-analytics" element={<ProjectPage />} />
+          <Route path="/projects/toronto-parking-lesson" element={<ParkingProjectPage />} />
         </Routes>
         <Footer />
       </div>
