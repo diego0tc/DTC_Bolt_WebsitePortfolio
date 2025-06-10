@@ -29,25 +29,25 @@ const Hero: React.FC = () => {
     // Phase 1: Title appears (immediately)
     setAnimationPhase(1);
     
-    // Phase 2: Subtitle appears (after 1500ms - same timing, smoother movement)
+    // Phase 2: Subtitle appears (after 1500ms - same timing as third animation)
     setTimeout(() => {
       setAnimationPhase(2);
     }, 1500);
     
-    // Phase 3: Skills pills appear (after 2800ms - perfect timing kept)
+    // Phase 3: Skills pills appear (after 3500ms - bigger gap for text focus)
     setTimeout(() => {
       setAnimationPhase(3);
-    }, 2800);
+    }, 3500);
     
-    // Phase 4: Button appears (after 4200ms - perfect timing kept)
+    // Phase 4: Button appears (after 4900ms - same gap as before)
     setTimeout(() => {
       setAnimationPhase(4);
-    }, 4200);
+    }, 4900);
   };
 
   return (
     <div id="home" className="min-h-screen bg-gray-950 relative flex items-center">
-      {/* Background image - ALWAYS visible, no animation, no transition */}
+      {/* Background image - ALWAYS visible from start, part of the initial render */}
       <div 
         className="absolute inset-0 opacity-15 bg-cover bg-center"
         style={{
@@ -68,12 +68,12 @@ const Hero: React.FC = () => {
             Data Science & Analytics Portfolio
           </h1>
           
-          {/* Phase 2: Subtitle - MUCH smoother, less jumpy movement */}
+          {/* Phase 2: Subtitle - SAME movement and timing as third animation */}
           <p 
-            className={`text-xl md:text-2xl text-gray-300 mb-8 transition-all duration-1800 ease-out transform ${
+            className={`text-xl md:text-2xl text-gray-300 mb-8 transition-all duration-1000 ease-out transform ${
               animationPhase >= 2 
-                ? 'opacity-100 translate-y-0' 
-                : 'opacity-0 translate-y-4'
+                ? 'opacity-100 translate-y-0 scale-100' 
+                : 'opacity-0 translate-y-6 scale-95'
             }`}
           >
             Transforming complex data into actionable insights and elegant solutions
