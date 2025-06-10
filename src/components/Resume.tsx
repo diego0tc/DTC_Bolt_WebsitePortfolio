@@ -6,28 +6,43 @@ const Resume: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-gray-900 pt-20">
-      <div className="container mx-auto px-4 py-8">
-        <div className="flex items-center justify-between mb-8">
-          <button
-            onClick={() => navigate('/')}
-            className="flex items-center text-gray-400 hover:text-white transition-colors"
-          >
-            <ArrowLeft size={20} className="mr-2" />
-            Back to Portfolio
-          </button>
-          <a
-            href="/resume.pdf"
-            download
-            className="flex items-center bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors"
-          >
-            <Download size={20} className="mr-2" />
-            Download PDF
-          </a>
+    <div className="min-h-screen bg-gray-950 pt-20">
+      {/* Hero Section with Background */}
+      <div 
+        className="h-[300px] relative bg-cover bg-center"
+        style={{
+          backgroundImage: 'url("https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg")'
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-950/70 to-gray-950"></div>
+        <div className="container mx-auto px-4 h-full flex items-center relative">
+          <div>
+            <button
+              onClick={() => navigate('/')}
+              className="flex items-center text-gray-400 hover:text-red-400 transition-colors mb-6"
+            >
+              <ArrowLeft size={20} className="mr-2" />
+              Back to Portfolio
+            </button>
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Resume</h1>
+            <p className="text-xl text-gray-300">Professional experience and qualifications</p>
+          </div>
+          <div className="ml-auto">
+            <a
+              href="/resume.pdf"
+              download
+              className="flex items-center bg-red-500 text-white px-6 py-3 rounded-lg hover:bg-red-600 transition-colors hover:shadow-lg hover:shadow-red-500/25"
+            >
+              <Download size={20} className="mr-2" />
+              Download PDF
+            </a>
+          </div>
         </div>
+      </div>
 
-        <div className="bg-gray-800 rounded-lg shadow-xl p-8 max-w-4xl mx-auto">
-          <h1 className="text-3xl font-bold text-white mb-6">John Doe</h1>
+      <div className="container mx-auto px-4 py-12">
+        <div className="bg-gray-900 rounded-lg shadow-xl p-8 max-w-4xl mx-auto border border-gray-800">
+          <h1 className="text-3xl font-bold text-white mb-6">Diego Tejada Cardenas</h1>
           <p className="text-gray-400 mb-6">Senior Data Scientist & Analytics Engineer</p>
 
           <div className="mb-8">
@@ -42,7 +57,7 @@ const Resume: React.FC = () => {
             <h2 className="text-xl font-semibold text-white mb-4 border-b border-gray-700 pb-2">Experience</h2>
             
             <div className="mb-6">
-              <h3 className="text-lg font-semibold text-indigo-400">Senior Data Scientist</h3>
+              <h3 className="text-lg font-semibold text-red-400">Senior Data Scientist</h3>
               <p className="text-gray-400">TechCorp Inc. | 2020 - Present</p>
               <ul className="list-disc list-inside text-gray-300 mt-2 space-y-2">
                 <li>Led a team of 5 data scientists in developing predictive models for customer churn</li>
@@ -52,7 +67,7 @@ const Resume: React.FC = () => {
             </div>
 
             <div className="mb-6">
-              <h3 className="text-lg font-semibold text-indigo-400">Data Analyst</h3>
+              <h3 className="text-lg font-semibold text-red-400">Data Analyst</h3>
               <p className="text-gray-400">Analytics Co. | 2018 - 2020</p>
               <ul className="list-disc list-inside text-gray-300 mt-2 space-y-2">
                 <li>Conducted A/B tests resulting in 25% increase in user engagement</li>
@@ -66,12 +81,12 @@ const Resume: React.FC = () => {
             <h2 className="text-xl font-semibold text-white mb-4 border-b border-gray-700 pb-2">Education</h2>
             
             <div className="mb-4">
-              <h3 className="text-lg font-semibold text-indigo-400">Master of Science in Data Science</h3>
-              <p className="text-gray-400">Massachusetts Institute of Technology | 2018</p>
+              <h3 className="text-lg font-semibold text-red-400">Master of Science in Economics</h3>
+              <p className="text-gray-400">University of Toronto | 2018</p>
             </div>
 
             <div className="mb-4">
-              <h3 className="text-lg font-semibold text-indigo-400">Bachelor of Science in Computer Science</h3>
+              <h3 className="text-lg font-semibold text-red-400">Bachelor of Science in Economics</h3>
               <p className="text-gray-400">University of Toronto | 2016</p>
             </div>
           </div>
@@ -81,7 +96,7 @@ const Resume: React.FC = () => {
             
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               <div>
-                <h3 className="text-lg font-semibold text-indigo-400 mb-2">Programming</h3>
+                <h3 className="text-lg font-semibold text-red-400 mb-2">Programming</h3>
                 <ul className="text-gray-300 space-y-1">
                   <li>Python</li>
                   <li>R</li>
@@ -91,7 +106,7 @@ const Resume: React.FC = () => {
               </div>
               
               <div>
-                <h3 className="text-lg font-semibold text-indigo-400 mb-2">Data Science</h3>
+                <h3 className="text-lg font-semibold text-emerald-400 mb-2">Data Science</h3>
                 <ul className="text-gray-300 space-y-1">
                   <li>Machine Learning</li>
                   <li>Deep Learning</li>
@@ -101,7 +116,7 @@ const Resume: React.FC = () => {
               </div>
               
               <div>
-                <h3 className="text-lg font-semibold text-indigo-400 mb-2">Tools</h3>
+                <h3 className="text-lg font-semibold text-blue-400 mb-2">Tools</h3>
                 <ul className="text-gray-300 space-y-1">
                   <li>Tableau</li>
                   <li>AWS</li>

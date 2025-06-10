@@ -37,18 +37,18 @@ const Projects: React.FC = () => {
   }, [isAnimated]);
 
   return (
-    <div id="projects" className="min-h-screen py-32 bg-gray-900 relative">
+    <div id="projects" className="min-h-screen py-32 bg-gray-950 relative">
       {/* Explore More Indicator - Top Right Only */}
       <div className="absolute top-8 right-8 z-10">
         <button
           onClick={() => navigate('/projects')}
-          className="group bg-purple-600/20 hover:bg-purple-600 border border-purple-500/50 hover:border-purple-400 rounded-full px-4 py-2 flex items-center transition-all duration-300 backdrop-blur-sm"
+          className="group bg-blue-500/20 hover:bg-blue-500 border border-blue-400/50 hover:border-blue-300 rounded-full px-4 py-2 flex items-center transition-all duration-300 backdrop-blur-sm"
         >
-          <Grid size={16} className="text-purple-300 group-hover:text-white mr-2" />
-          <span className="text-purple-300 group-hover:text-white text-sm font-medium mr-2">
+          <Grid size={16} className="text-blue-300 group-hover:text-white mr-2" />
+          <span className="text-blue-300 group-hover:text-white text-sm font-medium mr-2">
             Browse All
           </span>
-          <ExternalLink size={16} className="text-purple-300 group-hover:text-white group-hover:translate-x-1 transition-all duration-300" />
+          <ExternalLink size={16} className="text-blue-300 group-hover:text-white group-hover:translate-x-1 transition-all duration-300" />
         </button>
       </div>
 
@@ -57,31 +57,31 @@ const Projects: React.FC = () => {
 
         {/* Quick Stats */}
         <div className="flex justify-center mb-8">
-          <div className="bg-gray-800/50 rounded-lg px-6 py-3 flex items-center space-x-6">
+          <div className="bg-gray-800/50 backdrop-blur-sm rounded-lg px-6 py-3 flex items-center space-x-6 border border-gray-700">
             <div className="text-center">
-              <div className="text-2xl font-bold text-purple-400">{projects.length}</div>
+              <div className="text-2xl font-bold text-red-400">{projects.length}</div>
               <div className="text-xs text-gray-400">Total Projects</div>
             </div>
             <div className="w-px h-8 bg-gray-600"></div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-blue-400">{projects.filter(p => p.type === 'tableau').length}</div>
+              <div className="text-2xl font-bold text-emerald-400">{projects.filter(p => p.type === 'tableau').length}</div>
               <div className="text-xs text-gray-400">Dashboards</div>
             </div>
             <div className="w-px h-8 bg-gray-600"></div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-green-400">{projects.filter(p => p.type === 'python').length}</div>
+              <div className="text-2xl font-bold text-blue-400">{projects.filter(p => p.type === 'python').length}</div>
               <div className="text-xs text-gray-400">Python</div>
             </div>
           </div>
         </div>
         
         <div className="flex justify-center mb-10">
-          <div className="bg-gray-800 p-1 rounded-lg inline-flex">
+          <div className="bg-gray-800 p-1 rounded-lg inline-flex border border-gray-700">
             <button
               onClick={() => setFilter('all')}
               className={`px-4 py-2 rounded-md text-sm font-medium transition-all ${
                 filter === 'all' 
-                  ? 'bg-indigo-600 text-white' 
+                  ? 'bg-red-500 text-white' 
                   : 'text-gray-300 hover:text-white'
               }`}
             >
@@ -91,7 +91,7 @@ const Projects: React.FC = () => {
               onClick={() => setFilter('tableau')}
               className={`px-4 py-2 rounded-md text-sm font-medium transition-all ${
                 filter === 'tableau' 
-                  ? 'bg-indigo-600 text-white' 
+                  ? 'bg-emerald-500 text-white' 
                   : 'text-gray-300 hover:text-white'
               }`}
             >
@@ -102,7 +102,7 @@ const Projects: React.FC = () => {
               onClick={() => setFilter('python')}
               className={`px-4 py-2 rounded-md text-sm font-medium transition-all ${
                 filter === 'python' 
-                  ? 'bg-indigo-600 text-white' 
+                  ? 'bg-blue-500 text-white' 
                   : 'text-gray-300 hover:text-white'
               }`}
             >
@@ -112,7 +112,7 @@ const Projects: React.FC = () => {
               onClick={() => setFilter('analysis')}
               className={`px-4 py-2 rounded-md text-sm font-medium transition-all ${
                 filter === 'analysis' 
-                  ? 'bg-indigo-600 text-white' 
+                  ? 'bg-orange-500 text-white' 
                   : 'text-gray-300 hover:text-white'
               }`}
             >

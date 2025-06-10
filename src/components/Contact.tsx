@@ -48,18 +48,18 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <div id="contact" className="min-h-screen py-32 bg-gray-800 relative">
+    <div id="contact" className="min-h-screen py-32 bg-gray-900 relative">
       {/* Explore More Indicator - Top Right Only */}
       <div className="absolute top-8 right-8 z-10">
         <button
           onClick={() => navigate('/contact')}
-          className="group bg-green-600/20 hover:bg-green-600 border border-green-500/50 hover:border-green-400 rounded-full px-4 py-2 flex items-center transition-all duration-300 backdrop-blur-sm"
+          className="group bg-violet-500/20 hover:bg-violet-500 border border-violet-400/50 hover:border-violet-300 rounded-full px-4 py-2 flex items-center transition-all duration-300 backdrop-blur-sm"
         >
-          <MessageSquare size={16} className="text-green-300 group-hover:text-white mr-2" />
-          <span className="text-green-300 group-hover:text-white text-sm font-medium mr-2">
+          <MessageSquare size={16} className="text-violet-300 group-hover:text-white mr-2" />
+          <span className="text-violet-300 group-hover:text-white text-sm font-medium mr-2">
             Full Contact
           </span>
-          <ExternalLink size={16} className="text-green-300 group-hover:text-white group-hover:translate-x-1 transition-all duration-300" />
+          <ExternalLink size={16} className="text-violet-300 group-hover:text-white group-hover:translate-x-1 transition-all duration-300" />
         </button>
       </div>
 
@@ -68,7 +68,7 @@ const Contact: React.FC = () => {
         
         <div className="md:flex md:space-x-10">
           <div className="md:w-1/2 mb-10 md:mb-0">
-            <div className="bg-gray-700 rounded-lg p-6 h-full">
+            <div className="bg-gray-800 rounded-lg p-6 h-full border border-gray-700">
               <h3 className="text-2xl font-bold text-white mb-6">Let's Connect</h3>
               
               <p className="text-gray-300 mb-8 leading-relaxed">
@@ -86,10 +86,10 @@ const Contact: React.FC = () => {
                       href={link.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center p-4 bg-gray-800 rounded-lg hover:bg-indigo-600 transition-all duration-300 group"
+                      className="flex items-center p-4 bg-gray-750 rounded-lg hover:bg-red-500 transition-all duration-300 group border border-gray-700 hover:border-red-400"
                       aria-label={link.name}
                     >
-                      <div className="text-indigo-400 group-hover:text-white transition-colors mr-3">
+                      <div className="text-red-400 group-hover:text-white transition-colors mr-3">
                         {getIcon(link.icon)}
                       </div>
                       <span className="text-gray-300 group-hover:text-white transition-colors font-medium">
@@ -100,8 +100,8 @@ const Contact: React.FC = () => {
                 </div>
               </div>
               
-              <div className="mt-8 p-4 bg-indigo-900/30 rounded-lg border border-indigo-700/50">
-                <p className="text-indigo-200 text-sm">
+              <div className="mt-8 p-4 bg-red-900/20 rounded-lg border border-red-700/50">
+                <p className="text-red-200 text-sm">
                   <strong>Preferred contact:</strong> LinkedIn for professional inquiries and networking.
                 </p>
               </div>
@@ -109,13 +109,13 @@ const Contact: React.FC = () => {
           </div>
           
           <div className="md:w-1/2">
-            <div className="bg-gray-700 rounded-lg p-6">
+            <div className="bg-gray-800 rounded-lg p-6 border border-gray-700">
               <h3 className="text-2xl font-bold text-white mb-6">Send Message</h3>
               
               {isSubmitted ? (
-                <div className="bg-green-800 bg-opacity-20 border border-green-700 text-green-400 rounded-lg p-4 flex items-center">
-                  <div className="w-10 h-10 bg-green-500 bg-opacity-30 rounded-full flex items-center justify-center mr-4">
-                    <Send size={20} className="text-green-400" />
+                <div className="bg-emerald-800/20 border border-emerald-700 text-emerald-400 rounded-lg p-4 flex items-center">
+                  <div className="w-10 h-10 bg-emerald-500/30 rounded-full flex items-center justify-center mr-4">
+                    <Send size={20} className="text-emerald-400" />
                   </div>
                   <div>
                     <h4 className="font-medium">Message sent successfully</h4>
@@ -133,7 +133,7 @@ const Contact: React.FC = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 text-white focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                      className="w-full bg-gray-750 border border-gray-600 rounded-lg px-4 py-2 text-white focus:border-red-500 focus:outline-none focus:ring-2 focus:ring-red-500/20"
                     />
                   </div>
                   
@@ -146,7 +146,7 @@ const Contact: React.FC = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 text-white focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                      className="w-full bg-gray-750 border border-gray-600 rounded-lg px-4 py-2 text-white focus:border-red-500 focus:outline-none focus:ring-2 focus:ring-red-500/20"
                     />
                   </div>
                   
@@ -159,7 +159,7 @@ const Contact: React.FC = () => {
                       onChange={handleChange}
                       required
                       rows={5}
-                      className="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 text-white focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                      className="w-full bg-gray-750 border border-gray-600 rounded-lg px-4 py-2 text-white focus:border-red-500 focus:outline-none focus:ring-2 focus:ring-red-500/20"
                       placeholder="Tell me about your project, collaboration ideas, or just say hello..."
                     ></textarea>
                   </div>
@@ -167,10 +167,10 @@ const Contact: React.FC = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className={`bg-indigo-600 text-white px-6 py-3 rounded-lg flex items-center justify-center w-full font-medium transition-all
+                    className={`bg-red-500 text-white px-6 py-3 rounded-lg flex items-center justify-center w-full font-medium transition-all
                       ${isSubmitting 
                         ? 'opacity-70 cursor-not-allowed' 
-                        : 'hover:bg-indigo-700 hover:shadow-lg'}`
+                        : 'hover:bg-red-600 hover:shadow-lg hover:shadow-red-500/25'}`
                       }
                   >
                     {isSubmitting ? (

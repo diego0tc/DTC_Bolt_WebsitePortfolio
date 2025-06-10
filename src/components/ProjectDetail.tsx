@@ -30,12 +30,12 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
       }`}
     >
       <div 
-        className="absolute inset-0 bg-black/70 backdrop-blur-sm"
+        className="absolute inset-0 bg-black/80 backdrop-blur-sm"
         onClick={onClose}
       ></div>
       
       <div 
-        className={`relative bg-gray-800 w-full max-w-4xl max-h-[90vh] overflow-auto rounded-lg shadow-xl transition-all duration-500 transform ${
+        className={`relative bg-gray-900 w-full max-w-4xl max-h-[90vh] overflow-auto rounded-lg shadow-xl transition-all duration-500 transform border border-gray-800 ${
           isVisible ? 'scale-100' : 'scale-95'
         }`}
         style={{ 
@@ -49,11 +49,11 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
             position: 'relative'
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-t from-gray-800 via-gray-800/70 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/70 to-transparent"></div>
           <div className="absolute top-4 left-4">
             <button 
               onClick={onClose}
-              className="bg-gray-900/80 hover:bg-gray-900 text-white p-2 rounded-full transition-colors"
+              className="bg-gray-950/80 hover:bg-gray-950 text-white p-2 rounded-full transition-colors border border-gray-700"
             >
               <ArrowLeft size={20} />
             </button>
@@ -87,7 +87,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
           {project.type === 'python' && (
             <div className="mb-8">
               <h3 className="text-xl font-semibold text-white mb-4">Code Sample</h3>
-              <div className="bg-gray-900 p-4 rounded-lg overflow-x-auto">
+              <div className="bg-gray-950 p-4 rounded-lg overflow-x-auto border border-gray-800">
                 <pre className="text-gray-300 text-sm">
                   <code>
 {`import pandas as pd
@@ -153,7 +153,7 @@ print(results)`}
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center px-4 py-2 rounded-lg text-sm font-medium"
+                className="flex items-center px-4 py-2 rounded-lg text-sm font-medium hover:shadow-lg transition-all"
                 style={{ 
                   backgroundColor: project.color,
                   color: project.contrastColor
