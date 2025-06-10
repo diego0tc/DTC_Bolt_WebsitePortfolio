@@ -7,12 +7,12 @@ const LoadingScreen: React.FC<{ onComplete: () => void }> = ({ onComplete }) => 
 
   useEffect(() => {
     const phases = [
-      { duration: 1500, phase: 1 }, // Name appears (faster)
-      { duration: 2500, phase: 2 }, // Name with subtitle (slightly faster)
-      { duration: 3000, phase: 3 },  // Reading time (more time to read!)
+      { duration: 800, phase: 1 }, // Name appears
+      { duration: 1200, phase: 2 }, // Name with subtitle
+      { duration: 600, phase: 3 },  // Fade out preparation
     ];
 
-    let timeoutId: number;
+    let timeoutId: NodeJS.Timeout;
     
     const runPhases = (index: number) => {
       if (index < phases.length) {
@@ -23,12 +23,12 @@ const LoadingScreen: React.FC<{ onComplete: () => void }> = ({ onComplete }) => 
         setIsVisible(false);
         timeoutId = setTimeout(() => {
           onComplete();
-        }, 800); // Allow fade out animation to complete
+        }, 500); // Allow fade out animation to complete
       }
     };
 
     // Start the sequence
-    timeoutId = setTimeout(() => runPhases(0), 500);
+    timeoutId = setTimeout(() => runPhases(0), 300);
 
     return () => {
       if (timeoutId) clearTimeout(timeoutId);
@@ -82,19 +82,24 @@ const LoadingScreen: React.FC<{ onComplete: () => void }> = ({ onComplete }) => 
           </div>
         </div>
 
-        {/* Main name animation */}
-        <div className="relative">
+        {/* Main name animation - FIXED: Better spacing between name and underline */}
+        <div className="relative px-8">
           <h1 
             className={`text-6xl md:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-orange-400 to-yellow-400 transition-all duration-700 transform ${
               currentPhase >= 1 
                 ? 'opacity-100 scale-100 translate-y-0' 
                 : 'opacity-0 scale-95 translate-y-4'
             }`}
+            style={{ 
+              lineHeight: '1.1',
+              paddingBottom: '1.5rem', // INCREASED: More space below the text before underline
+              marginBottom: '0.5rem'
+            }}
           >
             Diego
           </h1>
           
-          {/* Animated underline */}
+          {/* Animated underline - FIXED: Proper spacing from name */}
           <div 
             className={`h-1 bg-gradient-to-r from-red-400 to-orange-400 mx-auto transition-all duration-700 ${
               currentPhase >= 1 
@@ -104,7 +109,7 @@ const LoadingScreen: React.FC<{ onComplete: () => void }> = ({ onComplete }) => 
           ></div>
         </div>
 
-        {/* Subtitle animation */}
+        {/* Subtitle animation - Kept original spacing */}
         <div 
           className={`mt-6 transition-all duration-700 transform ${
             currentPhase >= 2 
@@ -112,23 +117,23 @@ const LoadingScreen: React.FC<{ onComplete: () => void }> = ({ onComplete }) => 
               : 'opacity-0 translate-y-4'
           }`}
         >
-          <p className="text-xl md:text-2xl text-gray-300 font-light tracking-wide">
-            Data Analyst & Analytics Engineer
+          <p className="text-xl md:text-2xl text-gray-300 font-light tracking-wide leading-relaxed px-4">
+            Analytics Engineer & Data Scientist
           </p>
           
           {/* Role indicators */}
           <div className="flex justify-center mt-4 space-x-6 text-sm text-gray-400">
             <span className="flex items-center">
-              <BarChart3 size={16} className="mr-1 text-emerald-400" />
-              Analysis & Insight
+              <BarChart3 size={16} className="mr-1 text-red-400" />
+              Analytics
             </span>
             <span className="flex items-center">
-              <Database size={16} className="mr-1 text-blue-400" />
-              Analytics Engineering
+              <Database size={16} className="mr-1 text-emerald-400" />
+              Engineering
             </span>
             <span className="flex items-center">
-              <TrendingUp size={16} className="mr-1 text-red-400" />
-              Architecture & Workflow
+              <TrendingUp size={16} className="mr-1 text-blue-400" />
+              Insights
             </span>
           </div>
           
