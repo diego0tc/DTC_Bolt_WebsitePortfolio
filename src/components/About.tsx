@@ -44,7 +44,7 @@ const About: React.FC = () => {
         {/* Profile Section with Photo */}
         <div className="mb-16">
           <div className="flex flex-col lg:flex-row items-center lg:items-start gap-12">
-            {/* Professional Photo */}
+            {/* Professional Photo - Same as AboutPage */}
             <div className="flex-shrink-0">
               <div className="relative">
                 <div className="w-80 h-80 rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-red-500 to-orange-500 p-1">

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Filter, ExternalLink, Grid } from 'lucide-react';
+import { Filter, ExternalLink, Grid, User } from 'lucide-react';
 import { projects } from '../data/projects';
 import ProjectCard from './ProjectCard';
 import { Project } from '../types';
@@ -54,6 +54,66 @@ const Projects: React.FC = () => {
 
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 text-center">Projects</h2>
+
+        {/* Introduction Section with Photo */}
+        <div className="mb-16">
+          <div className="flex flex-col lg:flex-row items-center lg:items-start gap-12">
+            {/* Professional Photo - Same style as About section */}
+            <div className="flex-shrink-0">
+              <div className="relative">
+                <div className="w-72 h-72 rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-blue-500 to-purple-500 p-1">
+                  <div className="w-full h-full rounded-xl bg-gray-800 flex items-center justify-center">
+                    <div className="text-center text-gray-400">
+                      <div className="w-20 h-20 mx-auto mb-3 rounded-full bg-gray-700 flex items-center justify-center">
+                        <span className="text-2xl font-bold">D</span>
+                      </div>
+                      <p className="text-sm">Project Portfolio</p>
+                      <p className="text-xs mt-1">(Professional Work)</p>
+                    </div>
+                  </div>
+                </div>
+                {/* Decorative elements */}
+                <div className="absolute -top-3 -right-3 w-6 h-6 bg-blue-500 rounded-full opacity-70"></div>
+                <div className="absolute -bottom-3 -left-3 w-4 h-4 bg-purple-500 rounded-full opacity-70"></div>
+              </div>
+            </div>
+            
+            {/* Project Introduction */}
+            <div className="flex-1">
+              <div className="bg-gray-900 rounded-xl p-8 border border-gray-800">
+                <h3 className="text-2xl font-bold text-white mb-6">Featured Work & Analysis</h3>
+                <p className="text-gray-300 leading-relaxed mb-6 text-lg">
+                  This collection showcases my expertise in data science, analytics engineering, and visualization 
+                  across diverse domains. Each project demonstrates different aspects of the data science lifecycle, 
+                  from exploratory analysis to production-ready solutions.
+                </p>
+                <p className="text-gray-300 leading-relaxed mb-6">
+                  My work spans multiple industries and methodologies, combining technical rigor with business 
+                  impact to deliver actionable insights and scalable solutions.
+                </p>
+                
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="flex items-start">
+                    <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <p className="text-gray-300">End-to-end data science projects</p>
+                  </div>
+                  <div className="flex items-start">
+                    <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <p className="text-gray-300">Interactive Tableau dashboards</p>
+                  </div>
+                  <div className="flex items-start">
+                    <div className="w-2 h-2 bg-emerald-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <p className="text-gray-300">Python-based analytics solutions</p>
+                  </div>
+                  <div className="flex items-start">
+                    <div className="w-2 h-2 bg-orange-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <p className="text-gray-300">Real-world business applications</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
         {/* Quick Stats */}
         <div className="flex justify-center mb-8">
