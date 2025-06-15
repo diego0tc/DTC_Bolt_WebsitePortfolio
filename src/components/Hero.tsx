@@ -39,10 +39,10 @@ const Hero: React.FC = () => {
       setAnimationPhase(3);
     }, 5500);
     
-    // Phase 4: Button appears (after 8500ms - BIG gap for skills focus)
+    // Phase 4: Buttons appear (FASTER: 8500ms → 6500ms - 2 seconds shorter)
     setTimeout(() => {
       setAnimationPhase(4);
-    }, 8500);
+    }, 6500);
   };
 
   return (
@@ -116,17 +116,35 @@ const Hero: React.FC = () => {
             </div>
           </div>
           
-          {/* Phase 4: Call to Action Button - EXACT same timing and movement as third animation */}
-          <button 
-            onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
-            className={`bg-red-500 text-white px-6 py-3 rounded-full hover:bg-red-600 transition-all duration-1000 ease-out flex items-center mx-auto shadow-lg hover:shadow-red-500/25 transform ${
-              animationPhase >= 4 
-                ? 'opacity-100 translate-y-0 scale-100' 
-                : 'opacity-0 translate-y-6 scale-95'
-            }`}
-          >
-            View About <ArrowDown className="ml-2" size={16} />
-          </button>
+          {/* Phase 4: Dual Call to Action Buttons - Sales-oriented approach */}
+          <div className={`flex flex-col sm:flex-row justify-center gap-4 transition-all duration-1000 ease-out transform ${
+            animationPhase >= 4 
+              ? 'opacity-100 translate-y-0 scale-100' 
+              : 'opacity-0 translate-y-6 scale-95'
+          }`}>
+            <button 
+              onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+              className="bg-red-500 text-white px-8 py-4 rounded-full hover:bg-red-600 transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-red-500/25 transform hover:scale-105"
+            >
+              About Me <ArrowDown className="ml-2" size={16} />
+            </button>
+            
+            <button 
+              onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+              className="bg-blue-500 text-white px-8 py-4 rounded-full hover:bg-blue-600 transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-blue-500/25 transform hover:scale-105"
+            >
+              View Projects <ArrowDown className="ml-2" size={16} />
+            </button>
+          </div>
+          
+          {/* Sales-oriented tagline */}
+          <p className={`text-gray-400 text-sm mt-4 transition-all duration-1000 ease-out transform ${
+            animationPhase >= 4 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-4'
+          }`} style={{ transitionDelay: animationPhase >= 4 ? '300ms' : '0ms' }}>
+            Ready to turn your data challenges into business advantages?
+          </p>
         </div>
       </div>
     </div>
