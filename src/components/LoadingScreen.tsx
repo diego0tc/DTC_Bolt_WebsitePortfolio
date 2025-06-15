@@ -12,7 +12,7 @@ const LoadingScreen: React.FC<{ onComplete: () => void }> = ({ onComplete }) => 
       { duration: 600, phase: 3 },  // Fade out preparation
     ];
 
-    let timeoutId: NodeJS.Timeout;
+    let timeoutId: number;
     
     const runPhases = (index: number) => {
       if (index < phases.length) {
@@ -96,7 +96,7 @@ const LoadingScreen: React.FC<{ onComplete: () => void }> = ({ onComplete }) => 
               marginBottom: '0.5rem'
             }}
           >
-            Diego
+            Your Name
           </h1>
           
           {/* Animated underline - FIXED: Proper spacing from name */}
@@ -118,7 +118,7 @@ const LoadingScreen: React.FC<{ onComplete: () => void }> = ({ onComplete }) => 
           }`}
         >
           <p className="text-xl md:text-2xl text-gray-300 font-light tracking-wide leading-relaxed px-4">
-            Analytics Engineer & Data Scientist
+            Your Professional Title Here
           </p>
           
           {/* Role indicators */}
