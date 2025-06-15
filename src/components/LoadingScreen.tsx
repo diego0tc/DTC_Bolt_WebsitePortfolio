@@ -118,7 +118,7 @@ const LoadingScreen: React.FC<{ onComplete: () => void }> = ({ onComplete }) => 
           }`}
         >
           <p className="text-xl md:text-2xl text-gray-300 font-light tracking-wide leading-relaxed px-4">
-            Analytics Engineer & Data Scientist
+            Analytics Engineer & Data Analyst
           </p>
           
           {/* Role indicators */}
