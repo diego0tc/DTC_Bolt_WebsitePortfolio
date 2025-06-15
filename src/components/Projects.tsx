@@ -46,22 +46,22 @@ const Projects: React.FC = () => {
         }}
       ></div>
 
-      {/* Explore More Indicator - Top Right Only */}
-      <div className="absolute top-8 right-8 z-10">
-        <button
-          onClick={() => navigate('/projects')}
-          className="group bg-blue-500/20 hover:bg-blue-500 border border-blue-400/50 hover:border-blue-300 rounded-full px-4 py-2 flex items-center transition-all duration-300 backdrop-blur-sm"
-        >
-          <Grid size={16} className="text-blue-300 group-hover:text-white mr-2" />
-          <span className="text-blue-300 group-hover:text-white text-sm font-medium mr-2">
-            Browse All
-          </span>
-          <ExternalLink size={16} className="text-blue-300 group-hover:text-white group-hover:translate-x-1 transition-all duration-300" />
-        </button>
-      </div>
-
       <div className="container mx-auto px-4 relative z-10">
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 text-center">Projects</h2>
+        <div className="flex justify-between items-start mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-white">Projects</h2>
+          
+          {/* Explore More Button - Now positioned next to title for better visibility */}
+          <button
+            onClick={() => navigate('/projects')}
+            className="group bg-blue-500/20 hover:bg-blue-500 border border-blue-400/50 hover:border-blue-300 rounded-full px-6 py-3 flex items-center transition-all duration-300 backdrop-blur-sm"
+          >
+            <Grid size={16} className="text-blue-300 group-hover:text-white mr-2" />
+            <span className="text-blue-300 group-hover:text-white text-sm font-medium mr-2">
+              Browse All
+            </span>
+            <ExternalLink size={16} className="text-blue-300 group-hover:text-white group-hover:translate-x-1 transition-all duration-300" />
+          </button>
+        </div>
 
         {/* Quick Stats */}
         <div className="flex justify-center mb-8">
