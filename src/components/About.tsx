@@ -25,21 +25,29 @@ const About: React.FC = () => {
 
   return (
     <div id="about" className="min-h-screen py-32 bg-gray-900 relative">
-      {/* Explore More Indicator - Top Right Only */}
-      <div className="absolute top-8 right-8 z-10">
-        <button
-          onClick={() => navigate('/about')}
-          className="group bg-emerald-500/20 hover:bg-emerald-500 border border-emerald-400/50 hover:border-emerald-300 rounded-full px-4 py-2 flex items-center transition-all duration-300 backdrop-blur-sm"
-        >
-          <span className="text-emerald-300 group-hover:text-white text-sm font-medium mr-2">
-            Explore More
-          </span>
-          <ExternalLink size={16} className="text-emerald-300 group-hover:text-white group-hover:translate-x-1 transition-all duration-300" />
-        </button>
-      </div>
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 opacity-10 bg-cover bg-center"
+        style={{
+          backgroundImage: "url('https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg')"
+        }}
+      ></div>
 
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center">About Me</h2>
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="flex justify-between items-start mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-white">About Me</h2>
+          
+          {/* Explore More Button - Now positioned next to title for better visibility */}
+          <button
+            onClick={() => navigate('/about')}
+            className="group bg-emerald-500/20 hover:bg-emerald-500 border border-emerald-400/50 hover:border-emerald-300 rounded-full px-6 py-3 flex items-center transition-all duration-300 backdrop-blur-sm"
+          >
+            <span className="text-emerald-300 group-hover:text-white text-sm font-medium mr-2">
+              Explore More
+            </span>
+            <ExternalLink size={16} className="text-emerald-300 group-hover:text-white group-hover:translate-x-1 transition-all duration-300" />
+          </button>
+        </div>
         
         {/* Profile Section with Photo */}
         <div className="mb-16">

@@ -52,22 +52,30 @@ const Projects: React.FC = () => {
 
   return (
     <div id="projects" className="min-h-screen py-32 bg-gray-950 relative">
-      {/* Explore More Indicator - Top Right Only */}
-      <div className="absolute top-8 right-8 z-10">
-        <button
-          onClick={() => navigate('/projects')}
-          className="group bg-blue-500/20 hover:bg-blue-500 border border-blue-400/50 hover:border-blue-300 rounded-full px-4 py-2 flex items-center transition-all duration-300 backdrop-blur-sm"
-        >
-          <Grid size={16} className="text-blue-300 group-hover:text-white mr-2" />
-          <span className="text-blue-300 group-hover:text-white text-sm font-medium mr-2">
-            Browse All
-          </span>
-          <ExternalLink size={16} className="text-blue-300 group-hover:text-white group-hover:translate-x-1 transition-all duration-300" />
-        </button>
-      </div>
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 opacity-10 bg-cover bg-center"
+        style={{
+          backgroundImage: "url('https://images.pexels.com/photos/669610/pexels-photo-669610.jpeg')"
+        }}
+      ></div>
 
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 text-center">Projects</h2>
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="flex justify-between items-start mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-white">Projects</h2>
+          
+          {/* Explore More Button - Now positioned next to title for better visibility */}
+          <button
+            onClick={() => navigate('/projects')}
+            className="group bg-blue-500/20 hover:bg-blue-500 border border-blue-400/50 hover:border-blue-300 rounded-full px-6 py-3 flex items-center transition-all duration-300 backdrop-blur-sm"
+          >
+            <Grid size={16} className="text-blue-300 group-hover:text-white mr-2" />
+            <span className="text-blue-300 group-hover:text-white text-sm font-medium mr-2">
+              Browse All
+            </span>
+            <ExternalLink size={16} className="text-blue-300 group-hover:text-white group-hover:translate-x-1 transition-all duration-300" />
+          </button>
+        </div>
 
         {/* Enhanced Stats Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
