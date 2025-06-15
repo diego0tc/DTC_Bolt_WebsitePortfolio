@@ -25,6 +25,14 @@ const About: React.FC = () => {
 
   return (
     <div id="about" className="min-h-screen py-32 bg-gray-900 relative">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 opacity-10 bg-cover bg-center"
+        style={{
+          backgroundImage: "url('https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg')"
+        }}
+      ></div>
+
       {/* Explore More Indicator - Top Right Only */}
       <div className="absolute top-8 right-8 z-10">
         <button
@@ -38,13 +46,13 @@ const About: React.FC = () => {
         </button>
       </div>
 
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 relative z-10">
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center">About Me</h2>
         
         {/* Profile Section with Photo */}
         <div className="mb-16">
           <div className="flex flex-col lg:flex-row items-center lg:items-start gap-12">
-            {/* Professional Photo - Same as AboutPage */}
+            {/* Professional Photo */}
             <div className="flex-shrink-0">
               <div className="relative">
                 <div className="w-80 h-80 rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-red-500 to-orange-500 p-1">
