@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, ExternalLink, MapPin, Clock, BarChart3, Lightbulb, Target, Maximize2, MousePointer, Scroll } from 'lucide-react';
+import { ArrowLeft, ExternalLink, MapPin, Clock, BarChart3, Lightbulb, Target, Maximize2, MousePointer, Scroll, ArrowUp } from 'lucide-react';
 import TableauEmbed from './TableauEmbed';
 
 const ParkingProjectPage: React.FC = () => {
@@ -24,6 +24,21 @@ const ParkingProjectPage: React.FC = () => {
 
   const disableInteraction = () => {
     setIsInteractionEnabled(false);
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
+  const handleViewMoreProjects = () => {
+    navigate('/projects');
+    // Scroll to top after navigation
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 100);
   };
 
   return (
@@ -359,7 +374,7 @@ const ParkingProjectPage: React.FC = () => {
           </div>
         </div>
 
-        {/* Call to Action */}
+        {/* Call to Action - Fixed with proper scroll functionality */}
         <div className="bg-gradient-to-r from-red-900/20 to-orange-900/20 rounded-xl p-8 border border-red-700/30 text-center backdrop-blur-sm">
           <h2 className="text-2xl font-bold text-white mb-4">Explore the Full Dashboard</h2>
           <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
@@ -377,10 +392,17 @@ const ParkingProjectPage: React.FC = () => {
               Open in Tableau Public
             </a>
             <button
-              onClick={() => navigate('/projects')}
+              onClick={handleViewMoreProjects}
               className="bg-gray-800 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition-colors border border-gray-700"
             >
               View More Projects
+            </button>
+            <button
+              onClick={scrollToTop}
+              className="bg-red-500 text-white px-6 py-3 rounded-lg hover:bg-red-600 transition-colors hover:shadow-lg hover:shadow-red-500/25 flex items-center justify-center"
+            >
+              <ArrowUp size={20} className="mr-2" />
+              Back to Top
             </button>
           </div>
         </div>
