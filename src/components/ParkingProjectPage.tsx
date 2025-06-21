@@ -27,7 +27,15 @@ const ParkingProjectPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-950 pt-20">
+    <div className="min-h-screen bg-gray-950 pt-20 relative">
+      {/* Toronto Downtown Background - Subtle and Professional */}
+      <div 
+        className="fixed inset-0 opacity-5 bg-cover bg-center"
+        style={{
+          backgroundImage: 'url("https://images.pexels.com/photos/374870/pexels-photo-374870.jpeg")'
+        }}
+      ></div>
+
       {/* Hero Section */}
       <div 
         className="h-[400px] relative bg-cover bg-center"
@@ -57,9 +65,9 @@ const ParkingProjectPage: React.FC = () => {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 py-12 relative z-10">
         {/* Project Stats */}
-        <div className="bg-gray-900 rounded-xl p-8 mb-12 border border-gray-800">
+        <div className="bg-gray-900/95 backdrop-blur-sm rounded-xl p-8 mb-12 border border-gray-800">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {projectStats.map((stat, index) => (
               <div key={index} className="text-center">
@@ -76,7 +84,7 @@ const ParkingProjectPage: React.FC = () => {
 
         {/* Project Overview */}
         <div className="grid lg:grid-cols-2 gap-12 mb-12">
-          <div className="bg-gray-900 rounded-xl p-8 border border-gray-800">
+          <div className="bg-gray-900/95 backdrop-blur-sm rounded-xl p-8 border border-gray-800">
             <div className="flex items-center mb-6">
               <Target className="text-red-400 mr-3" size={24} />
               <h2 className="text-2xl font-bold text-white">Project Goals</h2>
@@ -99,7 +107,7 @@ const ParkingProjectPage: React.FC = () => {
             </div>
           </div>
 
-          <div className="bg-gray-900 rounded-xl p-8 border border-gray-800">
+          <div className="bg-gray-900/95 backdrop-blur-sm rounded-xl p-8 border border-gray-800">
             <div className="flex items-center mb-6">
               <Clock className="text-emerald-400 mr-3" size={24} />
               <h2 className="text-2xl font-bold text-white">Quick Analysis Approach</h2>
@@ -136,7 +144,7 @@ const ParkingProjectPage: React.FC = () => {
         </div>
 
         {/* Enhanced Dashboard Section - Intuitive Overlay Design */}
-        <div className="bg-gray-900 rounded-xl p-8 mb-12 border border-gray-800">
+        <div className="bg-gray-900/95 backdrop-blur-sm rounded-xl p-8 mb-12 border border-gray-800">
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center">
               <BarChart3 className="text-blue-400 mr-3" size={24} />
@@ -241,7 +249,7 @@ const ParkingProjectPage: React.FC = () => {
         </div>
 
         {/* Key Insights */}
-        <div className="bg-gray-900 rounded-xl p-8 mb-12 border border-gray-800">
+        <div className="bg-gray-900/95 backdrop-blur-sm rounded-xl p-8 mb-12 border border-gray-800">
           <div className="flex items-center mb-6">
             <Lightbulb className="text-yellow-400 mr-3" size={24} />
             <h2 className="text-2xl font-bold text-white">Key Insights</h2>
@@ -287,7 +295,7 @@ const ParkingProjectPage: React.FC = () => {
         </div>
 
         {/* Personal Reflection */}
-        <div className="bg-gradient-to-r from-blue-900/20 to-purple-900/20 rounded-xl p-8 mb-12 border border-blue-700/30">
+        <div className="bg-gradient-to-r from-blue-900/20 to-purple-900/20 rounded-xl p-8 mb-12 border border-blue-700/30 backdrop-blur-sm">
           <div className="flex items-center mb-6">
             <MapPin className="text-blue-400 mr-3" size={24} />
             <h2 className="text-2xl font-bold text-white">New Torontonian Perspective</h2>
@@ -307,7 +315,7 @@ const ParkingProjectPage: React.FC = () => {
         </div>
 
         {/* Methodology & Data Sources */}
-        <div className="bg-gray-900 rounded-xl p-8 mb-12 border border-gray-800">
+        <div className="bg-gray-900/95 backdrop-blur-sm rounded-xl p-8 mb-12 border border-gray-800">
           <h2 className="text-2xl font-bold text-white mb-6">Methodology & Sources</h2>
           
           <div className="grid md:grid-cols-2 gap-8">
@@ -352,7 +360,7 @@ const ParkingProjectPage: React.FC = () => {
         </div>
 
         {/* Call to Action */}
-        <div className="bg-gradient-to-r from-red-900/20 to-orange-900/20 rounded-xl p-8 border border-red-700/30 text-center">
+        <div className="bg-gradient-to-r from-red-900/20 to-orange-900/20 rounded-xl p-8 border border-red-700/30 text-center backdrop-blur-sm">
           <h2 className="text-2xl font-bold text-white mb-4">Explore the Full Dashboard</h2>
           <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
             This weekend project demonstrates how quick data exploration can yield valuable insights. 
