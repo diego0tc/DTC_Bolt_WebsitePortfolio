@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { socialLinks } from '../data/projects';
 import { useNavigate, useLocation } from 'react-router-dom';
 

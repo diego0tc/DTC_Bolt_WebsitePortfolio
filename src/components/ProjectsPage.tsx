@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, Filter, Search, Calendar, ExternalLink, PanelRight } from 'lucide-react';
+import { ArrowLeft, Filter, Search, ExternalLink, PanelRight } from 'lucide-react';
 import { projects } from '../data/projects';
 import { Project } from '../types';
 
@@ -176,7 +176,7 @@ const ProjectsPage: React.FC = () => {
 
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project, index) => (
+          {filteredProjects.map((project) => (
             <div 
               key={project.id}
               className="group bg-gray-900 rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300 cursor-pointer border border-gray-800 hover:border-gray-700"
