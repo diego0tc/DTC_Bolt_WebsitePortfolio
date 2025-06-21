@@ -4,12 +4,14 @@ interface TableauEmbedProps {
   url: string;
   height?: number;
   title?: string;
+  interactive?: boolean;
 }
 
 const TableauEmbed: React.FC<TableauEmbedProps> = ({ 
   url, 
   height = 600, 
-  title = "Tableau Dashboard" 
+  title = "Tableau Dashboard",
+  interactive = false
 }) => {
   // Convert Tableau Public URL to embed format if needed
   const getEmbedUrl = (originalUrl: string): string => {
@@ -20,9 +22,9 @@ const TableauEmbed: React.FC<TableauEmbedProps> = ({
     
     // Convert regular Tableau Public URL to embed format
     if (originalUrl.includes('public.tableau.com')) {
-      // Extract the view path and add embed parameters
+      // Extract the view path and add embed parameters optimized for long dashboards
       const urlObj = new URL(originalUrl);
-      const embedUrl = `${urlObj.origin}${urlObj.pathname}?:embed=yes&:display_count=yes&:showVizHome=no&:origin=viz_share_link&:tabs=no&:toolbar=no`;
+      const embedUrl = `${urlObj.origin}${urlObj.pathname}?:embed=yes&:display_count=no&:showVizHome=no&:origin=viz_share_link&:tabs=no&:toolbar=no&:showAppBanner=no&:loadOrderID=0`;
       return embedUrl;
     }
     
@@ -33,11 +35,8 @@ const TableauEmbed: React.FC<TableauEmbedProps> = ({
 
   return (
     <div className="w-full bg-gray-900 rounded-lg shadow-lg overflow-hidden border border-gray-800">
-      <div className="bg-gray-800 px-4 py-2 border-b border-gray-700">
-        <h3 className="text-sm font-medium text-gray-200">{title}</h3>
-      </div>
       <div 
-        className="w-full overflow-hidden"
+        className="w-full overflow-hidden relative"
         style={{ height: `${height}px` }}
       >
         <iframe
@@ -50,6 +49,9 @@ const TableauEmbed: React.FC<TableauEmbedProps> = ({
           className="w-full h-full"
           loading="lazy"
           sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+          style={{
+            pointerEvents: interactive ? 'auto' : 'none'
+          }}
         />
       </div>
       <div className="bg-gray-800 px-4 py-2 text-xs text-gray-400 border-t border-gray-700">
