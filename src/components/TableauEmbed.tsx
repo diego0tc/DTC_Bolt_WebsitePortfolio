@@ -4,12 +4,14 @@ interface TableauEmbedProps {
   url: string;
   height?: number;
   title?: string;
+  interactive?: boolean;
 }
 
 const TableauEmbed: React.FC<TableauEmbedProps> = ({ 
   url, 
   height = 600, 
-  title = "Tableau Dashboard" 
+  title = "Tableau Dashboard",
+  interactive = true
 }) => {
   // Convert Tableau Public URL to embed format if needed
   const getEmbedUrl = (originalUrl: string): string => {
@@ -34,10 +36,18 @@ const TableauEmbed: React.FC<TableauEmbedProps> = ({
   return (
     <div className="w-full bg-gray-900 rounded-lg shadow-lg overflow-hidden border border-gray-800">
       <div className="bg-gray-800 px-4 py-2 border-b border-gray-700">
-        <h3 className="text-sm font-medium text-gray-200">{title}</h3>
+        <div className="flex items-center justify-between">
+          <h3 className="text-sm font-medium text-gray-200">{title}</h3>
+          {!interactive && (
+            <div className="flex items-center">
+              <div className="w-2 h-2 bg-yellow-400 rounded-full mr-2"></div>
+              <span className="text-xs text-gray-400">Preview Mode</span>
+            </div>
+          )}
+        </div>
       </div>
       <div 
-        className="w-full overflow-hidden"
+        className="w-full overflow-hidden relative"
         style={{ height: `${height}px` }}
       >
         <iframe
@@ -50,7 +60,17 @@ const TableauEmbed: React.FC<TableauEmbedProps> = ({
           className="w-full h-full"
           loading="lazy"
           sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+          style={{
+            pointerEvents: interactive ? 'auto' : 'none'
+          }}
         />
+        
+        {/* Scroll Hint for Non-Interactive Mode */}
+        {!interactive && (
+          <div className="absolute bottom-4 right-4 bg-gray-900/90 backdrop-blur-sm text-white px-3 py-2 rounded-lg text-xs border border-gray-700">
+            Scroll-friendly mode
+          </div>
+        )}
       </div>
       <div className="bg-gray-800 px-4 py-2 text-xs text-gray-400 border-t border-gray-700">
         <a 
