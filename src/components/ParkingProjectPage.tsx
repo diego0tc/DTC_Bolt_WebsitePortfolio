@@ -214,7 +214,7 @@ const ParkingProjectPage: React.FC = () => {
                 <div className="w-2 h-2 bg-emerald-400 rounded-full mr-3 animate-pulse"></div>
                 <p className="text-emerald-200 text-sm">
                   <strong>Interactive Mode Active:</strong> You can now interact with the dashboard. 
-                  Click "Preview Mode" or scroll outside the dashboard area to continue reading.
+                  Click "Preview Mode\" or scroll outside the dashboard area to continue reading.
                 </p>
               </div>
             </div>
