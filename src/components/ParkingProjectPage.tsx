@@ -28,11 +28,11 @@ const ParkingProjectPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-950 pt-20 relative">
-      {/* Toronto Downtown Background - Subtle and Professional */}
+      {/* Urban Parking Background - Cars and Parking Lots */}
       <div 
         className="fixed inset-0 opacity-5 bg-cover bg-center"
         style={{
-          backgroundImage: 'url("https://images.pexels.com/photos/374870/pexels-photo-374870.jpeg")'
+          backgroundImage: 'url("https://images.pexels.com/photos/63294/autos-technology-vw-multi-storey-car-park-63294.jpeg")'
         }}
       ></div>
 
