@@ -12,7 +12,7 @@ const LoadingScreen: React.FC<{ onComplete: () => void }> = ({ onComplete }) => 
       { duration: 600, phase: 3 },  // Fade out preparation
     ];
 
-    let timeoutId: NodeJS.Timeout;
+    let timeoutId: number;
     
     const runPhases = (index: number) => {
       if (index < phases.length) {
@@ -96,7 +96,7 @@ const LoadingScreen: React.FC<{ onComplete: () => void }> = ({ onComplete }) => 
               marginBottom: '0.5rem'
             }}
           >
-            Diego
+            Diego TC
           </h1>
           
           {/* Animated underline - FIXED: Proper spacing from name */}
@@ -118,22 +118,22 @@ const LoadingScreen: React.FC<{ onComplete: () => void }> = ({ onComplete }) => 
           }`}
         >
           <p className="text-xl md:text-2xl text-gray-300 font-light tracking-wide leading-relaxed px-4">
-            Analytics Engineer & Data Analyst
+            Turning Questions into Business Living Systems
           </p>
           
           {/* Role indicators */}
           <div className="flex justify-center mt-4 space-x-6 text-sm text-gray-400">
             <span className="flex items-center">
               <BarChart3 size={16} className="mr-1 text-red-400" />
-              Analytics
+              Lead Data Analyst
             </span>
             <span className="flex items-center">
               <Database size={16} className="mr-1 text-emerald-400" />
-              Engineering
+              Analytics Engineer
             </span>
             <span className="flex items-center">
               <TrendingUp size={16} className="mr-1 text-blue-400" />
-              Insights
+              Data Architecture & Workflow
             </span>
           </div>
           

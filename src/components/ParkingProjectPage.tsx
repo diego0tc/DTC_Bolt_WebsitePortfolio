@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, ExternalLink, MapPin, Clock, BarChart3, Lightbulb, Target } from 'lucide-react';
+import { ArrowLeft, ExternalLink, MapPin, Clock, BarChart3, Lightbulb, Target, Maximize2, MousePointer, Scroll, ArrowUp } from 'lucide-react';
 import TableauEmbed from './TableauEmbed';
 
 const ParkingProjectPage: React.FC = () => {
   const navigate = useNavigate();
+  const [isInteractionEnabled, setIsInteractionEnabled] = useState(false);
 
   const projectStats = [
     { label: 'Project Duration', value: 'Weekend', color: 'text-red-400' },
@@ -13,8 +14,43 @@ const ParkingProjectPage: React.FC = () => {
     { label: 'Dashboard Views', value: '1', color: 'text-orange-400' }
   ];
 
+  const handleFullscreen = () => {
+    window.open('https://public.tableau.com/views/TheNewTorontonianaparkinglesson/Dashboard1', '_blank');
+  };
+
+  const enableInteraction = () => {
+    setIsInteractionEnabled(true);
+  };
+
+  const disableInteraction = () => {
+    setIsInteractionEnabled(false);
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
+  const handleViewMoreProjects = () => {
+    navigate('/projects');
+    // Scroll to top after navigation
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 100);
+  };
+
   return (
-    <div className="min-h-screen bg-gray-950 pt-20">
+    <div className="min-h-screen bg-gray-950 pt-20 relative">
+      {/* Conventional Parking Lot Background - Clean and Professional */}
+      <div 
+        className="fixed inset-0 opacity-5 bg-cover bg-center"
+        style={{
+          backgroundImage: 'url("https://images.pexels.com/photos/753876/pexels-photo-753876.jpeg")'
+        }}
+      ></div>
+
       {/* Hero Section */}
       <div 
         className="h-[400px] relative bg-cover bg-center"
@@ -44,9 +80,9 @@ const ParkingProjectPage: React.FC = () => {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 py-12 relative z-10">
         {/* Project Stats */}
-        <div className="bg-gray-900 rounded-xl p-8 mb-12 border border-gray-800">
+        <div className="bg-gray-900/95 backdrop-blur-sm rounded-xl p-8 mb-12 border border-gray-800">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {projectStats.map((stat, index) => (
               <div key={index} className="text-center">
@@ -63,7 +99,7 @@ const ParkingProjectPage: React.FC = () => {
 
         {/* Project Overview */}
         <div className="grid lg:grid-cols-2 gap-12 mb-12">
-          <div className="bg-gray-900 rounded-xl p-8 border border-gray-800">
+          <div className="bg-gray-900/95 backdrop-blur-sm rounded-xl p-8 border border-gray-800">
             <div className="flex items-center mb-6">
               <Target className="text-red-400 mr-3" size={24} />
               <h2 className="text-2xl font-bold text-white">Project Goals</h2>
@@ -86,7 +122,7 @@ const ParkingProjectPage: React.FC = () => {
             </div>
           </div>
 
-          <div className="bg-gray-900 rounded-xl p-8 border border-gray-800">
+          <div className="bg-gray-900/95 backdrop-blur-sm rounded-xl p-8 border border-gray-800">
             <div className="flex items-center mb-6">
               <Clock className="text-emerald-400 mr-3" size={24} />
               <h2 className="text-2xl font-bold text-white">Quick Analysis Approach</h2>
@@ -122,11 +158,22 @@ const ParkingProjectPage: React.FC = () => {
           </div>
         </div>
 
-        {/* Main Dashboard */}
-        <div className="bg-gray-900 rounded-xl p-8 mb-12 border border-gray-800">
-          <div className="flex items-center mb-6">
-            <BarChart3 className="text-blue-400 mr-3" size={24} />
-            <h2 className="text-2xl font-bold text-white">Interactive Dashboard</h2>
+        {/* Enhanced Dashboard Section - Intuitive Overlay Design */}
+        <div className="bg-gray-900/95 backdrop-blur-sm rounded-xl p-8 mb-12 border border-gray-800">
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center">
+              <BarChart3 className="text-blue-400 mr-3" size={24} />
+              <h2 className="text-2xl font-bold text-white">Interactive Infographic Dashboard</h2>
+            </div>
+            
+            {/* Quick Action Button */}
+            <button
+              onClick={handleFullscreen}
+              className="flex items-center px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-all text-sm font-medium hover:shadow-lg hover:shadow-red-500/25"
+            >
+              <Maximize2 size={16} className="mr-2" />
+              Open Full Experience
+            </button>
           </div>
           
           <div className="mb-6">
@@ -140,23 +187,84 @@ const ParkingProjectPage: React.FC = () => {
             </p>
           </div>
 
-          <TableauEmbed 
-            url="https://public.tableau.com/views/TheNewTorontonianaparkinglesson/Dashboard1"
-            height={700}
-            title="The New Torontonian Parking Lesson Dashboard"
-          />
+          {/* Dashboard Container with Smart Overlay */}
+          <div className="relative group">
+            {/* Intuitive Overlay - Only shows when NOT interactive */}
+            {!isInteractionEnabled && (
+              <div className="absolute inset-0 z-20 rounded-lg">
+                {/* Invisible clickable area */}
+                <div 
+                  className="absolute inset-0 cursor-pointer"
+                  onClick={enableInteraction}
+                />
+                
+                {/* Visual overlay that appears on hover */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30 opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-lg flex items-center justify-center">
+                  <div className="bg-blue-500/90 backdrop-blur-sm text-white px-8 py-4 rounded-xl flex items-center space-x-3 transform scale-95 group-hover:scale-100 transition-all duration-300 shadow-2xl">
+                    <MousePointer size={24} />
+                    <div>
+                      <div className="font-semibold">Click to Explore Dashboard</div>
+                      <div className="text-sm text-blue-100">Enable scrolling and interaction</div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Corner indicator - always visible */}
+                <div className="absolute top-4 right-4 bg-gray-900/80 backdrop-blur-sm text-white px-3 py-2 rounded-lg text-sm border border-gray-600 flex items-center">
+                  <Scroll size={16} className="mr-2 text-blue-400" />
+                  <span className="text-gray-300">Scroll Mode</span>
+                </div>
+              </div>
+            )}
+
+            {/* Exit interaction button - only shows when interactive */}
+            {isInteractionEnabled && (
+              <div className="absolute top-4 right-4 z-30">
+                <button
+                  onClick={disableInteraction}
+                  className="bg-red-500/90 backdrop-blur-sm text-white px-4 py-2 rounded-lg text-sm hover:bg-red-600 transition-all flex items-center border border-red-400"
+                >
+                  <Scroll size={16} className="mr-2" />
+                  Exit Dashboard
+                </button>
+              </div>
+            )}
+
+            <TableauEmbed 
+              url="https://public.tableau.com/views/TheNewTorontonianaparkinglesson/Dashboard1"
+              height={700}
+              title="The New Torontonian Parking Lesson Dashboard"
+              interactive={isInteractionEnabled}
+            />
+          </div>
           
-          <div className="mt-6 p-4 bg-blue-900/20 rounded-lg border border-blue-700/30">
-            <p className="text-blue-200 text-sm">
-              <strong>Interactive Features:</strong> Use the filters and hover over data points 
-              to explore different neighborhoods, time periods, and parking metrics. 
-              [Add specific interaction instructions for your dashboard]
-            </p>
+          {/* Smart Instructions */}
+          <div className="mt-6 grid md:grid-cols-2 gap-4">
+            <div className="p-4 bg-blue-900/20 rounded-lg border border-blue-700/30">
+              <h4 className="text-blue-200 font-medium mb-2 flex items-center">
+                <MousePointer size={16} className="mr-2" />
+                How to Navigate:
+              </h4>
+              <p className="text-blue-200 text-sm">
+                <strong>Scroll Mode:</strong> Perfect for reading through the infographic story. 
+                Click anywhere on the dashboard to enable full interaction when you want to explore specific data points.
+              </p>
+            </div>
+            <div className="p-4 bg-emerald-900/20 rounded-lg border border-emerald-700/30">
+              <h4 className="text-emerald-200 font-medium mb-2 flex items-center">
+                <Maximize2 size={16} className="mr-2" />
+                Best Experience:
+              </h4>
+              <p className="text-emerald-200 text-sm">
+                For the complete infographic experience with full Tableau features, 
+                click "Open Full Experience" to view in a new tab with optimal sizing.
+              </p>
+            </div>
           </div>
         </div>
 
         {/* Key Insights */}
-        <div className="bg-gray-900 rounded-xl p-8 mb-12 border border-gray-800">
+        <div className="bg-gray-900/95 backdrop-blur-sm rounded-xl p-8 mb-12 border border-gray-800">
           <div className="flex items-center mb-6">
             <Lightbulb className="text-yellow-400 mr-3" size={24} />
             <h2 className="text-2xl font-bold text-white">Key Insights</h2>
@@ -202,7 +310,7 @@ const ParkingProjectPage: React.FC = () => {
         </div>
 
         {/* Personal Reflection */}
-        <div className="bg-gradient-to-r from-blue-900/20 to-purple-900/20 rounded-xl p-8 mb-12 border border-blue-700/30">
+        <div className="bg-gradient-to-r from-blue-900/20 to-purple-900/20 rounded-xl p-8 mb-12 border border-blue-700/30 backdrop-blur-sm">
           <div className="flex items-center mb-6">
             <MapPin className="text-blue-400 mr-3" size={24} />
             <h2 className="text-2xl font-bold text-white">New Torontonian Perspective</h2>
@@ -222,7 +330,7 @@ const ParkingProjectPage: React.FC = () => {
         </div>
 
         {/* Methodology & Data Sources */}
-        <div className="bg-gray-900 rounded-xl p-8 mb-12 border border-gray-800">
+        <div className="bg-gray-900/95 backdrop-blur-sm rounded-xl p-8 mb-12 border border-gray-800">
           <h2 className="text-2xl font-bold text-white mb-6">Methodology & Sources</h2>
           
           <div className="grid md:grid-cols-2 gap-8">
@@ -266,8 +374,8 @@ const ParkingProjectPage: React.FC = () => {
           </div>
         </div>
 
-        {/* Call to Action */}
-        <div className="bg-gradient-to-r from-red-900/20 to-orange-900/20 rounded-xl p-8 border border-red-700/30 text-center">
+        {/* Call to Action - Fixed with proper scroll functionality */}
+        <div className="bg-gradient-to-r from-red-900/20 to-orange-900/20 rounded-xl p-8 border border-red-700/30 text-center backdrop-blur-sm">
           <h2 className="text-2xl font-bold text-white mb-4">Explore the Full Dashboard</h2>
           <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
             This weekend project demonstrates how quick data exploration can yield valuable insights. 
@@ -284,10 +392,17 @@ const ParkingProjectPage: React.FC = () => {
               Open in Tableau Public
             </a>
             <button
-              onClick={() => navigate('/projects')}
+              onClick={handleViewMoreProjects}
               className="bg-gray-800 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition-colors border border-gray-700"
             >
               View More Projects
+            </button>
+            <button
+              onClick={scrollToTop}
+              className="bg-red-500 text-white px-6 py-3 rounded-lg hover:bg-red-600 transition-colors hover:shadow-lg hover:shadow-red-500/25 flex items-center justify-center"
+            >
+              <ArrowUp size={20} className="mr-2" />
+              Back to Top
             </button>
           </div>
         </div>

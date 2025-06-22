@@ -90,10 +90,10 @@ const Hero: React.FC = () => {
               style={{ transitionDelay: animationPhase >= 3 ? '200ms' : '0ms' }}
             >
               <BarChart4 className="text-emerald-400 mr-3" />
-              <span className="text-white">Data Analysis & Insight</span>
+              <span className="text-white">Lead Data Analyst</span>
             </div>
             <div 
-              className={`bg-gray-800/70 backdrop-blur-sm p-4 rounded-lg flex items-center border border-gray-700/50 hover:border-blue-400/50 transition-all duration-1000 ease-out transform ${
+              className={`bg-gray-800/70 backdrop-blur-sm p-4 rounded-lg flex items-center border border-gray-700/50 hover:border-red-400/50 transition-all duration-1000 ease-out transform ${
                 animationPhase >= 3 
                   ? 'opacity-100 translate-y-0 scale-100' 
                   : 'opacity-0 translate-y-6 scale-95'
@@ -101,7 +101,7 @@ const Hero: React.FC = () => {
               style={{ transitionDelay: animationPhase >= 3 ? '400ms' : '0ms' }}
             >
               <Database className="text-blue-400 mr-3" />
-              <span className="text-white">Analytics Engineering</span>
+              <span className="text-white">Analytics Engineer</span>
             </div>
             <div 
               className={`bg-gray-800/70 backdrop-blur-sm p-4 rounded-lg flex items-center border border-gray-700/50 hover:border-red-400/50 transition-all duration-1000 ease-out transform ${

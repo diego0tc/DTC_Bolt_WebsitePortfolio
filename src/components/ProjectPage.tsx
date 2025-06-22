@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, ChevronDown, ChevronUp, ExternalLink, FileText, Database, BarChart, Calendar, Users, TrendingUp, Target, Lightbulb, Code, Image as ImageIcon, BarChart3 } from 'lucide-react';
+import { ArrowLeft, ChevronDown, ChevronUp, ExternalLink, FileText, Database, BarChart, Calendar, Users, TrendingUp, Target, Lightbulb, Code, Image as ImageIcon, BarChart3, ArrowUp } from 'lucide-react';
 import TableauEmbed from './TableauEmbed';
 
 interface ContentSection {
@@ -28,6 +28,29 @@ const DogShelterProject: React.FC = () => {
         ? prev.filter(id => id !== sectionId)
         : [...prev, sectionId]
     );
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
+  const handleViewMoreProjects = () => {
+    navigate('/projects');
+    // Scroll to top after navigation
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 100);
+  };
+
+  const handleDiscussProject = () => {
+    navigate('/contact');
+    // Scroll to top after navigation
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 100);
   };
 
   // Main story sections with placeholders for your content
@@ -509,7 +532,7 @@ def train_adoption_model(X, y):
           )}
         </div>
 
-        {/* Call to Action */}
+        {/* Call to Action - Fixed with proper scroll functionality */}
         <div className="mt-16 bg-gradient-to-r from-red-900/20 to-orange-900/20 rounded-xl p-8 border border-red-700/30 text-center">
           <h2 className="text-2xl font-bold text-white mb-4">Interested in Similar Analysis?</h2>
           <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
@@ -519,16 +542,23 @@ def train_adoption_model(X, y):
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
-              onClick={() => navigate('/contact')}
+              onClick={handleDiscussProject}
               className="bg-red-500 text-white px-6 py-3 rounded-lg hover:bg-red-600 transition-colors hover:shadow-lg hover:shadow-red-500/25"
             >
               Discuss Your Project
             </button>
             <button
-              onClick={() => navigate('/projects')}
+              onClick={handleViewMoreProjects}
               className="bg-gray-800 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition-colors border border-gray-700"
             >
               View More Projects
+            </button>
+            <button
+              onClick={scrollToTop}
+              className="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition-colors hover:shadow-lg hover:shadow-blue-500/25 flex items-center justify-center"
+            >
+              <ArrowUp size={20} className="mr-2" />
+              Back to Top
             </button>
           </div>
         </div>
