@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from 'react';
-<<<<<<< HEAD
-import { Filter, ExternalLink, Grid, Search, PanelRight } from 'lucide-react';
-=======
 import { Filter, ExternalLink, Grid, Search, PanelRight, ChevronDown, ChevronRight } from 'lucide-react';
->>>>>>> bolt-ui
 import { projects } from '../data/projects';
 import ProjectCard from './ProjectCard';
 import { Project } from '../types';
@@ -21,12 +17,8 @@ interface CategoryConfig {
 
 const Projects: React.FC = () => {
   const navigate = useNavigate();
-<<<<<<< HEAD
-  const [filter, setFilter] = useState<string>('all');
-=======
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [selectedSubcategory, setSelectedSubcategory] = useState<string>('all');
->>>>>>> bolt-ui
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [filteredProjects, setFilteredProjects] = useState<Project[]>(projects);
   const [isAnimated, setIsAnimated] = useState(false);
@@ -69,11 +61,6 @@ const Projects: React.FC = () => {
   useEffect(() => {
     let filtered = projects;
     
-<<<<<<< HEAD
-    // Apply type filter
-    if (filter !== 'all') {
-      filtered = filtered.filter(project => project.type === filter);
-=======
     // Apply category and subcategory filters
     if (selectedCategory !== 'all') {
       const category = categories.find(cat => cat.id === selectedCategory);
@@ -91,7 +78,6 @@ const Projects: React.FC = () => {
           allTypesInCategory.includes(project.type)
         );
       }
->>>>>>> bolt-ui
     }
     
     // Apply search filter
@@ -104,9 +90,6 @@ const Projects: React.FC = () => {
     }
     
     setFilteredProjects(filtered);
-<<<<<<< HEAD
-  }, [filter, searchTerm]);
-=======
   }, [selectedCategory, selectedSubcategory, searchTerm]);
 
   useEffect(() => {
@@ -119,7 +102,6 @@ const Projects: React.FC = () => {
       setShowSubcategories(true);
     }
   }, [selectedCategory]);
->>>>>>> bolt-ui
   
   useEffect(() => {
     const handleScroll = () => {
@@ -197,79 +179,6 @@ const Projects: React.FC = () => {
             <div className="text-gray-300 text-sm">Total Projects</div>
           </div>
           <div className="bg-gray-900 rounded-lg p-4 text-center border border-gray-800 hover:border-emerald-500/50 transition-all duration-300">
-<<<<<<< HEAD
-            <div className="text-2xl font-bold text-emerald-400 mb-2">{projects.filter(p => p.type === 'tableau').length}</div>
-            <div className="text-gray-300 text-sm">Dashboards</div>
-          </div>
-          <div className="bg-gray-900 rounded-lg p-4 text-center border border-gray-800 hover:border-blue-500/50 transition-all duration-300">
-            <div className="text-2xl font-bold text-blue-400 mb-2">{projects.filter(p => p.type === 'python').length}</div>
-            <div className="text-gray-300 text-sm">Python</div>
-          </div>
-          <div className="bg-gray-900 rounded-lg p-4 text-center border border-gray-800 hover:border-orange-500/50 transition-all duration-300">
-            <div className="text-2xl font-bold text-orange-400 mb-2">{projects.filter(p => p.type === 'analysis').length}</div>
-            <div className="text-gray-300 text-sm">Analysis</div>
-          </div>
-        </div>
-        
-        {/* Enhanced Search and Filters */}
-        <div className="bg-gray-900 rounded-lg p-6 mb-10 border border-gray-800">
-          <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
-            {/* Search */}
-            <div className="relative flex-1 max-w-md">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
-              <input
-                type="text"
-                placeholder="Search projects..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:border-red-500 focus:outline-none"
-              />
-            </div>
-
-            {/* Filters */}
-            <div className="flex bg-gray-800 p-1 rounded-lg border border-gray-700">
-              <button
-                onClick={() => setFilter('all')}
-                className={`px-4 py-2 rounded-md text-sm font-medium transition-all ${
-                  filter === 'all' 
-                    ? 'bg-red-500 text-white' 
-                    : 'text-gray-300 hover:text-white'
-                }`}
-              >
-                All
-              </button>
-              <button
-                onClick={() => setFilter('tableau')}
-                className={`px-4 py-2 rounded-md text-sm font-medium transition-all ${
-                  filter === 'tableau' 
-                    ? 'bg-emerald-500 text-white' 
-                    : 'text-gray-300 hover:text-white'
-                }`}
-              >
-                Tableau
-              </button>
-              <button
-                onClick={() => setFilter('python')}
-                className={`px-4 py-2 rounded-md text-sm font-medium transition-all ${
-                  filter === 'python' 
-                    ? 'bg-blue-500 text-white' 
-                    : 'text-gray-300 hover:text-white'
-                }`}
-              >
-                Python
-              </button>
-              <button
-                onClick={() => setFilter('analysis')}
-                className={`px-4 py-2 rounded-md text-sm font-medium transition-all ${
-                  filter === 'analysis' 
-                    ? 'bg-orange-500 text-white' 
-                    : 'text-gray-300 hover:text-white'
-                }`}
-              >
-                Analysis
-              </button>
-            </div>
-=======
             <div className="text-2xl font-bold text-emerald-400 mb-2">{getProjectCountForCategory('analytics')}</div>
             <div className="text-gray-300 text-sm">Analytics</div>
           </div>
@@ -383,7 +292,6 @@ const Projects: React.FC = () => {
                 </div>
               </div>
             )}
->>>>>>> bolt-ui
           </div>
         </div>
         
@@ -397,11 +305,7 @@ const Projects: React.FC = () => {
                   : 'translate-y-20 opacity-0'
               }`}
               style={{ 
-<<<<<<< HEAD
-                backgroundImage: `url('${project.backgroundImage}')`,
-=======
                 backgroundImage: `url('${project.backgroundImage || 'https://images.pexels.com/photos/669610/pexels-photo-669610.jpeg'}')`,
->>>>>>> bolt-ui
                 transitionDelay: `${index * 100}ms`
               }}
               onClick={() => {
@@ -422,13 +326,8 @@ const Projects: React.FC = () => {
                   <span 
                     className="px-3 py-1 rounded-full text-sm font-medium backdrop-blur-sm"
                     style={{ 
-<<<<<<< HEAD
-                      backgroundColor: project.color,
-                      color: project.contrastColor
-=======
                       backgroundColor: project.color || '#dc2626',
                       color: project.contrastColor || '#ffffff'
->>>>>>> bolt-ui
                     }}
                   >
                     {project.type === 'tableau' ? 'Tableau' : 
@@ -492,8 +391,6 @@ const Projects: React.FC = () => {
             <Filter className="w-12 h-12 mx-auto mb-4 opacity-50" />
             <p className="text-xl mb-2">No projects found</p>
             <p>Try adjusting your search or filter criteria</p>
-<<<<<<< HEAD
-=======
             <button
               onClick={() => {
                 setSelectedCategory('all');
@@ -504,7 +401,6 @@ const Projects: React.FC = () => {
             >
               Reset All Filters
             </button>
->>>>>>> bolt-ui
           </div>
         )}
 
